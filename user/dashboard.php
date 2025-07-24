@@ -1038,7 +1038,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
         <div class="stats-section">
             <h2 class="section-title">
                 <i class="fas fa-chart-pie text-primary"></i>
-                Financial Overview
+                <?php echo t('member_dashboard.financial_overview'); ?>
             </h2>
             
             <div class="row g-4 mb-4">
@@ -1050,20 +1050,20 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-piggy-bank"></i>
                             </div>
                             <div class="stat-title-group">
-                                <h3>Total Contributed</h3>
+                                <h3><?php echo t('member_dashboard.total_contributions'); ?></h3>
                             </div>
                         </div>
                         <div class="stat-value">£<?php echo number_format($total_contributed, 2); ?></div>
                         <div class="stat-detail">
                             <i class="fas fa-arrow-up text-success me-1"></i>
-                            Active members
+                            <?php echo t('member_dashboard.active'); ?>
                         </div>
                         <div class="progress-container">
                             <div class="progress">
                                 <div class="progress-bar" style="width: <?php echo min(($total_contributed / $expected_payout) * 100, 100); ?>%"></div>
                             </div>
                             <div class="stat-detail mt-2">
-                                <?php echo number_format(min(($total_contributed / $expected_payout) * 100, 100), 1); ?>% of expected payout
+                                <?php echo number_format(min(($total_contributed / $expected_payout) * 100, 100), 1); ?>% <?php echo t('member_dashboard.of_expected_payout'); ?>
                             </div>
                         </div>
                     </div>
@@ -1077,7 +1077,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <div class="stat-title-group">
-                                <h3>Expected Payout</h3>
+                                <h3><?php echo t('member_dashboard.expected_payout'); ?></h3>
                             </div>
                         </div>
                         <div class="stat-value">£<?php echo number_format($expected_payout, 2); ?></div>
@@ -1087,7 +1087,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                         </div>
                         <div class="stat-detail mt-2">
                             <i class="fas fa-users me-1"></i>
-                            <?php echo $total_members; ?> members × £<?php echo number_format($monthly_contribution, 2); ?> monthly contribution
+                            <?php echo sprintf(t('member_dashboard.members_calculation'), $total_members, number_format($monthly_contribution, 2)); ?>
                         </div>
                     </div>
                 </div>
@@ -1100,25 +1100,25 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-<?php echo $has_paid_this_month ? 'check-circle' : 'clock'; ?>"></i>
                             </div>
                             <div class="stat-title-group">
-                                <h3>This Month Payment</h3>
+                                <h3><?php echo t('member_dashboard.monthly_payment_status'); ?></h3>
                             </div>
                         </div>
                         <div class="stat-value">
-                            <span class="text-<?php echo $has_paid_this_month ? 'success' : 'warning'; ?>">
-                                <?php echo $has_paid_this_month ? 'Paid' : 'Pending'; ?>
+                                                            <span class="text-<?php echo $has_paid_this_month ? 'success' : 'warning'; ?>">
+                                <?php echo $has_paid_this_month ? t('member_dashboard.paid') : t('member_dashboard.pending'); ?>
                             </span>
                         </div>
                                                  <?php if (!$has_paid_this_month): ?>
                              <div class="mt-3 text-center">
                                  <a href="contributions.php" class="btn btn-warning btn-sm">
                                      <i class="fas fa-plus me-1"></i>
-                                     Pay Now
+                                     <?php echo t('member_dashboard.pay_now'); ?>
                                  </a>
                              </div>
                         <?php else: ?>
                                                                                 <div class="stat-detail" style="color: #2A9D8F !important;">
                                 <i class="fas fa-check me-1"></i>
-                                Payment confirmed for this month
+                                <?php echo t('member_dashboard.payment_confirmed'); ?>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -1132,21 +1132,21 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-calendar-alt"></i>
                             </div>
                             <div class="stat-title-group">
-                                <h3>Your Payout Date</h3>
+                                <h3><?php echo t('member_dashboard.payout_date'); ?></h3>
                             </div>
                         </div>
                         <div class="stat-value"><?php echo date('M d, Y', strtotime($next_payout_date)); ?></div>
                         <div class="stat-detail">
-                            Position <?php echo $payout_position; ?> of <?php echo $total_members; ?> members
+                            <?php echo sprintf(t('member_dashboard.position_of_members'), $payout_position, $total_members); ?>
                         </div>
                         <div class="stat-detail mt-2">
                             <i class="fas fa-clock me-1"></i>
                             <?php 
                             $days_until = floor((strtotime($next_payout_date) - time()) / (60 * 60 * 24));
                             if ($days_until > 0) {
-                                echo $days_until . ' days remaining';
+                                echo sprintf(t('member_dashboard.days_remaining'), $days_until);
                             } else {
-                                echo 'Payout available soon';
+                                echo t('member_dashboard.payout_available');
                             }
                             ?>
                         </div>
@@ -1159,7 +1159,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
         <div class="actions-section">
             <h2 class="section-title">
                 <i class="fas fa-bolt text-warning"></i>
-                Quick Actions
+                <?php echo t('member_dashboard.quick_actions'); ?>
             </h2>
             
             <div class="row g-4">
@@ -1170,7 +1170,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-credit-card"></i>
                             </div>
                                                          <div class="action-title-group">
-                                 <h4>Your Payments</h4>
+                                 <h4><?php echo t('member_dashboard.make_contribution'); ?></h4>
                              </div>
                         </div>
                     </a>
@@ -1183,7 +1183,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <div class="action-title-group">
-                                <h4>Payout Information</h4>
+                                <h4><?php echo t('member_dashboard.payout_info'); ?></h4>
                             </div>
                         </div>
                     </a>
@@ -1209,7 +1209,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-user-cog"></i>
                             </div>
                             <div class="action-title-group">
-                                <h4>Profile Settings</h4>
+                                <h4><?php echo t('member_dashboard.profile_settings'); ?></h4>
                             </div>
                         </div>
                     </a>
