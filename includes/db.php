@@ -8,9 +8,9 @@
 
 // Database Configuration - MODIFY THESE FOR YOUR SERVER
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'habeshaequb');
-define('DB_USER', 'root');        // Change for production
-define('DB_PASS', '');            // Change for production
+define('DB_NAME', 'habeshjv_habeshaequb');
+define('DB_USER', 'abel');        // Server database user
+define('DB_PASS', '2121@Habesha'); // Server database password
 
 // Error reporting for development (disable in production)
 error_reporting(E_ALL);
