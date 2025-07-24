@@ -1001,45 +1001,79 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 /* === EQUB RULES ACCORDION SECTION === */
 .rules-section {
-    background: var(--palette-white);
-    border-radius: 20px;
-    padding: 32px;
+    background: linear-gradient(135deg, #ffffff 0%, #fafbfc 100%);
+    border-radius: 24px;
+    padding: 40px;
     margin-bottom: 40px;
-    border: 1px solid var(--palette-border);
-    box-shadow: 0 8px 32px rgba(48, 25, 67, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.rules-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 200% 0; }
+    50% { background-position: -200% 0; }
 }
 
 .rules-section .section-title {
     font-size: 28px;
     font-weight: 700;
-    color: var(--palette-deep-purple);
+    color: #2d3748;
     margin-bottom: 8px;
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.rules-section .section-subtitle {
-    color: var(--palette-dark-purple);
-    font-size: 16px;
-    margin-bottom: 24px;
-    opacity: 0.8;
+.rules-section .section-title i {
+    color: #667eea !important;
 }
 
-/* Accordion Styling */
+.rules-section .section-subtitle {
+    color: #718096;
+    font-size: 16px;
+    margin-bottom: 32px;
+    font-weight: 400;
+}
+
+/* Modern Accordion Styling */
 .accordion {
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    border: 1px solid var(--palette-border);
+    border: none;
+    background: transparent;
 }
 
 .accordion-item {
     border: none;
-    border-bottom: 1px solid var(--palette-border);
+    margin-bottom: 12px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .accordion-item:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
 }
 
 .accordion-header {
@@ -1047,140 +1081,220 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .accordion-button {
-    background: var(--palette-cream);
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
     border: none;
-    padding: 20px 24px;
+    padding: 24px 28px;
     font-size: 16px;
     font-weight: 600;
-    color: var(--palette-deep-purple);
-    border-radius: 0;
+    color: #2d3748;
+    border-radius: 16px;
     box-shadow: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.accordion-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    transition: left 0.6s;
+}
+
+.accordion-button:hover::before {
+    left: 100%;
+}
+
+.accordion-button:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    transform: translateY(-1px);
 }
 
 .accordion-button:not(.collapsed) {
-    background: var(--palette-gold);
-    color: var(--palette-white);
-    box-shadow: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
 }
 
 .accordion-button:focus {
-    box-shadow: 0 0 0 0.25rem rgba(218, 165, 32, 0.25);
-    border-color: var(--palette-gold);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    border-color: transparent;
 }
 
 .accordion-button::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23301934'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232d3748'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
     transition: transform 0.3s ease;
+    width: 20px;
+    height: 20px;
+    background-size: 20px;
+}
+
+.accordion-button:hover::after,
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .accordion-button:not(.collapsed)::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
     transform: rotate(-180deg);
 }
 
 .rule-number-badge {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 6px 12px;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 20px;
     font-size: 14px;
     font-weight: 700;
-    margin-right: 12px;
-    display: inline-block;
+    margin-right: 16px;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s ease;
 }
 
+.accordion-button:hover .rule-number-badge,
 .accordion-button:not(.collapsed) .rule-number-badge {
-    background: rgba(255, 255, 255, 0.3);
-    color: var(--palette-white);
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transform: scale(1.05);
 }
 
 .accordion-body {
-    padding: 24px;
-    background: var(--palette-white);
+    padding: 32px 28px;
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .rule-content {
     font-size: 16px;
-    line-height: 1.7;
-    color: var(--palette-deep-purple);
-    text-align: justify;
+    line-height: 1.8;
+    color: #4a5568;
+    text-align: left;
+    font-weight: 400;
+    position: relative;
+    padding-left: 20px;
+}
+
+.rule-content::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 4px;
+    height: calc(100% - 16px);
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    border-radius: 2px;
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .rules-section {
-        padding: 20px;
-        margin-bottom: 24px;
-        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 32px;
+        border-radius: 20px;
     }
     
     .rules-section .section-title {
-        font-size: 22px;
+        font-size: 24px;
         margin-bottom: 6px;
     }
     
     .rules-section .section-subtitle {
-        font-size: 14px;
-        margin-bottom: 16px;
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+    
+    .accordion-item {
+        margin-bottom: 10px;
+        border-radius: 14px;
     }
     
     .accordion-button {
-        padding: 16px 20px;
+        padding: 20px 22px;
         font-size: 15px;
+        border-radius: 14px;
     }
     
     .rule-number-badge {
         font-size: 13px;
-        padding: 4px 10px;
-        margin-right: 8px;
+        padding: 6px 14px;
+        margin-right: 12px;
+        border-radius: 16px;
     }
     
     .accordion-body {
-        padding: 20px;
+        padding: 24px 22px;
     }
     
     .rule-content {
         font-size: 15px;
-        line-height: 1.6;
+        line-height: 1.7;
+        padding-left: 16px;
+    }
+    
+    .rule-content::before {
+        width: 3px;
     }
 }
 
 @media (max-width: 576px) {
     .rules-section {
-        padding: 16px;
-        margin-bottom: 20px;
-        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 24px;
+        border-radius: 18px;
     }
     
     .rules-section .section-title {
-        font-size: 20px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        font-size: 22px;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+        justify-content: center;
     }
     
     .rules-section .section-subtitle {
-        font-size: 13px;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .accordion-item {
+        margin-bottom: 8px;
+        border-radius: 12px;
     }
     
     .accordion-button {
-        padding: 14px 16px;
+        padding: 18px 20px;
         font-size: 14px;
+        border-radius: 12px;
     }
     
     .rule-number-badge {
         font-size: 12px;
-        padding: 3px 8px;
-        margin-right: 6px;
+        padding: 5px 12px;
+        margin-right: 10px;
+        border-radius: 14px;
     }
     
     .accordion-body {
-        padding: 16px;
+        padding: 20px;
     }
     
     .rule-content {
         font-size: 14px;
-        line-height: 1.5;
+        line-height: 1.6;
+        padding-left: 14px;
+    }
+    
+    .rule-content::before {
+        width: 3px;
+        top: 6px;
     }
 }
 }
@@ -1418,50 +1532,6 @@ $cache_buster = time() . '_' . rand(1000, 9999);
             </div>
         </div>
 
-        <!-- Equb Rules Accordion Section -->
-        <?php if (!empty($equb_rules)): ?>
-        <div class="rules-section">
-            <h2 class="section-title">
-                <i class="fas fa-gavel text-warning"></i>
-                <?php echo t('member_dashboard.equb_rules'); ?>
-            </h2>
-            <p class="section-subtitle"><?php echo t('member_dashboard.equb_rules_desc'); ?></p>
-            
-            <div class="accordion" id="equbRulesAccordion">
-                <?php foreach ($equb_rules as $index => $rule): ?>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading<?php echo $rule['rule_number']; ?>">
-                        <button class="accordion-button <?php echo $index === 0 ? '' : 'collapsed'; ?>" 
-                                type="button" 
-                                data-bs-toggle="collapse" 
-                                data-bs-target="#collapse<?php echo $rule['rule_number']; ?>" 
-                                aria-expanded="<?php echo $index === 0 ? 'true' : 'false'; ?>" 
-                                aria-controls="collapse<?php echo $rule['rule_number']; ?>">
-                            <span class="rule-number-badge">
-                                <?php echo t('member_dashboard.rule_number'); ?> <?php echo $rule['rule_number']; ?>
-                            </span>
-                        </button>
-                    </h2>
-                    <div id="collapse<?php echo $rule['rule_number']; ?>" 
-                         class="accordion-collapse collapse <?php echo $index === 0 ? 'show' : ''; ?>" 
-                         aria-labelledby="heading<?php echo $rule['rule_number']; ?>" 
-                         data-bs-parent="#equbRulesAccordion">
-                        <div class="accordion-body">
-                            <div class="rule-content">
-                                <?php 
-                                // Display content based on current language
-                                $content = (getCurrentLanguage() === 'am') ? $rule['rule_am'] : $rule['rule_en'];
-                                echo nl2br(htmlspecialchars($content)); 
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
-        <?php endif; ?>
-
         <!-- Recent Payments Section -->
         <?php if (!empty($recent_payments)): ?>
         <div class="table-section">
@@ -1507,6 +1577,50 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                         <?php echo t('member_dashboard.view_all_payments'); ?>
                     </a>
                 </div>
+            </div>
+        </div>
+        <?php endif; ?>
+
+        <!-- Equb Rules Accordion Section -->
+        <?php if (!empty($equb_rules)): ?>
+        <div class="rules-section">
+            <h2 class="section-title">
+                <i class="fas fa-gavel text-warning"></i>
+                <?php echo t('member_dashboard.equb_rules'); ?>
+            </h2>
+            <p class="section-subtitle"><?php echo t('member_dashboard.equb_rules_desc'); ?></p>
+            
+            <div class="accordion" id="equbRulesAccordion">
+                <?php foreach ($equb_rules as $index => $rule): ?>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading<?php echo $rule['rule_number']; ?>">
+                        <button class="accordion-button <?php echo $index === 0 ? '' : 'collapsed'; ?>" 
+                                type="button" 
+                                data-bs-toggle="collapse" 
+                                data-bs-target="#collapse<?php echo $rule['rule_number']; ?>" 
+                                aria-expanded="<?php echo $index === 0 ? 'true' : 'false'; ?>" 
+                                aria-controls="collapse<?php echo $rule['rule_number']; ?>">
+                            <span class="rule-number-badge">
+                                <?php echo t('member_dashboard.rule_number'); ?> <?php echo $rule['rule_number']; ?>
+                            </span>
+                        </button>
+                    </h2>
+                    <div id="collapse<?php echo $rule['rule_number']; ?>" 
+                         class="accordion-collapse collapse <?php echo $index === 0 ? 'show' : ''; ?>" 
+                         aria-labelledby="heading<?php echo $rule['rule_number']; ?>" 
+                         data-bs-parent="#equbRulesAccordion">
+                        <div class="accordion-body">
+                            <div class="rule-content">
+                                <?php 
+                                // Display content based on current language
+                                $content = (getCurrentLanguage() === 'am') ? $rule['rule_am'] : $rule['rule_en'];
+                                echo nl2br(htmlspecialchars($content)); 
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
             </div>
         </div>
         <?php endif; ?>
