@@ -580,6 +580,7 @@
     "make_payment": "Make Payment",
     "total_paid": "Total Paid",
     "total_paid_desc": "Total amount you have contributed to the equb so far",
+    "payments_made": "payments made",
     "payment_progress": "Payment Progress",
     "payment_progress_desc": "Your contribution progress towards expected total",
     "next_payment": "Next Payment",
