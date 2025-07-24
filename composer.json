@@ -1,0 +1,8 @@
+{
+    "name": "habeshaequb/admin",
+    "description": "HabeshaEqub Admin System",
+    "type": "project",
+    "require": {
+        "tecnickcom/tcpdf": "^6.10"
+    }
+}
