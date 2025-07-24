@@ -719,6 +719,52 @@ $csrf_token = generate_csrf_token();
     }
 }
 
+/* === PRELOADER === */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #264653 0%, #2A9D8F 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    text-align: center;
+    color: white;
+}
+
+.preloader-logo {
+    font-size: 32px;
+    font-weight: 700;
+    color: #E9C46A;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.preloader-svg {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.preloader-text {
+    font-size: 14px;
+    color: #F1ECE2;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
 /* === APP CONTENT === */
 .app-content {
     flex: 1;
@@ -736,6 +782,28 @@ $csrf_token = generate_csrf_token();
     }
 }
 </style>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+    <div class="preloader-content">
+        <div class="preloader-logo">HabeshaEqub</div>
+        <div class="preloader-svg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width="100%" height="100%" style="shape-rendering: auto; display: block; background: transparent;" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g>
+                    <circle stroke-width="25" stroke="#E9C46A" fill="none" r="0" cy="50" cx="50">
+                        <animate begin="0s" calcMode="spline" keySplines="0 0.2 0.8 1" keyTimes="0;1" values="0;44" dur="2s" repeatCount="indefinite" attributeName="r"></animate>
+                        <animate begin="0s" calcMode="spline" keySplines="0.2 0 0.8 1" keyTimes="0;1" values="1;0" dur="2s" repeatCount="indefinite" attributeName="opacity"></animate>
+                    </circle>
+                    <circle stroke-width="25" stroke="#E76F51" fill="none" r="0" cy="50" cx="50">
+                        <animate begin="-1s" calcMode="spline" keySplines="0 0.2 0.8 1" keyTimes="0;1" values="0;44" dur="2s" repeatCount="indefinite" attributeName="r"></animate>
+                        <animate begin="-1s" calcMode="spline" keySplines="0.2 0 0.8 1" keyTimes="0;1" values="1;0" dur="2s" repeatCount="indefinite" attributeName="opacity"></animate>
+                    </circle>
+                </g>
+            </svg>
+        </div>
+        <div class="preloader-text"><?php echo t('common.loading'); ?></div>
+    </div>
+</div>
 
 <!-- Mobile Overlay -->
 <div class="mobile-overlay" id="mobileOverlay"></div>
@@ -938,6 +1006,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const languageMenu = document.getElementById('languageMenu');
     const languageToggle = document.getElementById('languageToggle');
     const languageDropdown = document.getElementById('languageDropdown');
+    const preloader = document.getElementById('preloader');
 
     // Restore sidebar state for desktop (default to collapsed if not set)
     let isCollapsed = localStorage.getItem('memberSidebarCollapsed') === 'true';
@@ -1038,6 +1107,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+    // Hide preloader once page is fully loaded
+    function hidePreloader() {
+        if (preloader) {
+            preloader.classList.add('hidden');
+            // Remove preloader from DOM after animation completes
+            setTimeout(() => {
+                if (preloader && preloader.parentNode) {
+                    preloader.parentNode.removeChild(preloader);
+                }
+            }, 500);
+        }
+    }
+
+    // Hide preloader when everything is loaded
+    if (document.readyState === 'complete') {
+        hidePreloader();
+    } else {
+        window.addEventListener('load', hidePreloader);
+    }
 });
 
 // Language switching function
