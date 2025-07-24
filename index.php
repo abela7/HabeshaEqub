@@ -7,8 +7,8 @@
 // Include database for session handling
 require_once 'includes/db.php';
 
-// Redirect to user dashboard
-header("Location: user/dashboard.php");
+// Redirect to user login page
+header("Location: user/login.php");
 exit();
 ?>
 <html lang="en">

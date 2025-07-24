@@ -1127,29 +1127,9 @@ async function changeLanguage(language) {
 }
 
 // Logout function
-async function handleLogout() {
+function handleLogout() {
     if (confirm('<?php echo t('member_nav.logout_confirm'); ?>')) {
-        try {
-            const response = await fetch('api/auth.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: 'action=logout'
-            });
-
-            const data = await response.json();
-            
-            if (data.success) {
-                window.location.href = 'login.php';
-            } else {
-                alert('Logout failed. Please try again.');
-            }
-        } catch (error) {
-            console.error('Logout error:', error);
-            // Fallback redirect
-            window.location.href = 'login.php';
-        }
+        window.location.href = 'logout.php';
     }
 }
 </script> 

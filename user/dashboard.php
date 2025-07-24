@@ -17,8 +17,13 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once '../includes/db.php';
 require_once '../languages/translator.php';
 
-// Debug: Force specific member for testing (will be session-based in production)
-$user_id = $_SESSION['user_id'] ?? 1; // Michael Werkneh = ID 1
+// Check if user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$user_id = $_SESSION['user_id'];
 
 // Get REAL member data from database
 try {
