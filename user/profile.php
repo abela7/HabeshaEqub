@@ -28,7 +28,7 @@ try {
                COALESCE(SUM(CASE WHEN p.status IN ('paid', 'completed') THEN p.amount ELSE 0 END), 0) as total_contributed,
                COALESCE(COUNT(CASE WHEN p.status IN ('paid', 'completed') THEN 1 END), 0) as payments_made,
                COALESCE(
-                   (SELECT amount FROM payouts po WHERE po.member_id = m.id ORDER BY po.payout_date DESC LIMIT 1), 
+                   (SELECT total_amount FROM payouts po WHERE po.member_id = m.id ORDER BY po.actual_payout_date DESC LIMIT 1), 
                    0
                ) as last_payout_amount,
                (SELECT COUNT(*) FROM payouts po WHERE po.member_id = m.id) as total_payouts_received
@@ -69,7 +69,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo t('profile.page_title'); ?> - HabeshaEqub</title>
+    <title><?php echo t('user_profile.page_title'); ?> - HabeshaEqub</title>
     
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="../Pictures/Icon/favicon.ico">
@@ -461,9 +461,9 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                 <div class="page-header">
                     <h1 class="page-title">
                         <i class="fas fa-user-circle text-warning"></i>
-                        <?php echo t('profile.page_title'); ?>
+                        <?php echo t('user_profile.page_title'); ?>
                     </h1>
-                    <p class="page-subtitle"><?php echo t('profile.page_subtitle'); ?></p>
+                    <p class="page-subtitle"><?php echo t('user_profile.page_subtitle'); ?></p>
                 </div>
             </div>
         </div>
@@ -473,7 +473,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
             <div class="col-12">
                 <h2 class="section-title">
                     <i class="fas fa-chart-bar text-primary"></i>
-                    <?php echo t('profile.financial_overview'); ?>
+                    <?php echo t('user_profile.financial_overview'); ?>
                 </h2>
             </div>
             
@@ -485,13 +485,13 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                             <i class="fas fa-coins"></i>
                         </div>
                         <div class="financial-title">
-                            <h4><?php echo t('profile.monthly_payment'); ?></h4>
+                            <h4><?php echo t('user_profile.monthly_payment'); ?></h4>
                         </div>
                     </div>
                     <div class="financial-value">£<?php echo number_format($monthly_contribution, 2); ?></div>
                     <div class="financial-detail">
                         <i class="fas fa-calendar me-1"></i>
-                        <?php echo t('profile.per_month'); ?>
+                        <?php echo t('user_profile.per_month'); ?>
                     </div>
                 </div>
             </div>
@@ -504,13 +504,13 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                             <i class="fas fa-piggy-bank"></i>
                         </div>
                         <div class="financial-title">
-                            <h4><?php echo t('profile.total_contributed'); ?></h4>
+                            <h4><?php echo t('user_profile.total_contributed'); ?></h4>
                         </div>
                     </div>
                     <div class="financial-value">£<?php echo number_format($total_contributed, 2); ?></div>
                     <div class="financial-detail">
                         <i class="fas fa-check-circle me-1"></i>
-                        <?php echo $payments_made; ?> <?php echo t('profile.payments_made'); ?>
+                        <?php echo $payments_made; ?> <?php echo t('user_profile.payments_made'); ?>
                     </div>
                 </div>
             </div>
@@ -523,13 +523,13 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                             <i class="fas fa-trophy"></i>
                         </div>
                         <div class="financial-title">
-                            <h4><?php echo t('profile.expected_payout'); ?></h4>
+                            <h4><?php echo t('user_profile.expected_payout'); ?></h4>
                         </div>
                     </div>
                     <div class="financial-value">£<?php echo number_format($expected_payout, 2); ?></div>
                     <div class="financial-detail">
                         <i class="fas fa-users me-1"></i>
-                        <?php echo t('profile.position'); ?> #<?php echo $payout_position; ?>
+                        <?php echo t('user_profile.position'); ?> #<?php echo $payout_position; ?>
                     </div>
                 </div>
             </div>
@@ -542,21 +542,21 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                             <i class="fas fa-<?php echo $payout_status === 'received' ? 'check-circle' : 'clock'; ?>"></i>
                         </div>
                         <div class="financial-title">
-                            <h4><?php echo t('profile.payout_status'); ?></h4>
+                            <h4><?php echo t('user_profile.payout_status'); ?></h4>
                         </div>
                     </div>
                     <div class="financial-value">
                         <span class="status-badge <?php echo $payout_status === 'received' ? 'active' : 'pending'; ?>">
-                            <?php echo $payout_status === 'received' ? t('profile.received') : t('profile.pending'); ?>
+                            <?php echo $payout_status === 'received' ? t('user_profile.received') : t('user_profile.pending'); ?>
                         </span>
                     </div>
                     <div class="financial-detail">
                         <?php if ($payout_status === 'received'): ?>
                             <i class="fas fa-pound-sign me-1"></i>
-                            <?php echo t('profile.last_payout'); ?>: £<?php echo number_format($last_payout_amount, 2); ?>
+                            <?php echo t('user_profile.last_payout'); ?>: £<?php echo number_format($last_payout_amount, 2); ?>
                         <?php else: ?>
                             <i class="fas fa-hourglass-half me-1"></i>
-                            <?php echo t('profile.awaiting_turn'); ?>
+                            <?php echo t('user_profile.awaiting_turn'); ?>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -570,20 +570,20 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                 <div class="form-section">
                     <h2 class="section-title">
                         <i class="fas fa-user-edit text-primary"></i>
-                        <?php echo t('profile.personal_info'); ?>
+                        <?php echo t('user_profile.personal_info'); ?>
                     </h2>
                     
                     <form id="profileForm" method="POST" action="update-profile.php">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="first_name" class="form-label"><?php echo t('profile.first_name'); ?></label>
+                                    <label for="first_name" class="form-label"><?php echo t('user_profile.first_name'); ?></label>
                                     <input type="text" class="form-control" id="first_name" name="first_name" value="<?php echo htmlspecialchars($member['first_name'] ?? '', ENT_QUOTES); ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="last_name" class="form-label"><?php echo t('profile.last_name'); ?></label>
+                                    <label for="last_name" class="form-label"><?php echo t('user_profile.last_name'); ?></label>
                                     <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo htmlspecialchars($member['last_name'] ?? '', ENT_QUOTES); ?>" required>
                                 </div>
                             </div>
@@ -592,13 +592,13 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="email" class="form-label"><?php echo t('profile.email'); ?></label>
+                                    <label for="email" class="form-label"><?php echo t('user_profile.email'); ?></label>
                                     <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($member['email'] ?? '', ENT_QUOTES); ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="phone" class="form-label"><?php echo t('profile.phone'); ?></label>
+                                    <label for="phone" class="form-label"><?php echo t('user_profile.phone'); ?></label>
                                     <input type="tel" class="form-control" id="phone" name="phone" value="<?php echo htmlspecialchars($member['phone'] ?? '', ENT_QUOTES); ?>" required>
                                 </div>
                             </div>
@@ -607,11 +607,11 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                         <div class="d-flex gap-3 mt-4">
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-save me-2"></i>
-                                <?php echo t('profile.update_profile'); ?>
+                                <?php echo t('user_profile.update_profile'); ?>
                             </button>
                             <a href="dashboard.php" class="btn btn-warning">
                                 <i class="fas fa-arrow-left me-2"></i>
-                                <?php echo t('profile.back_dashboard'); ?>
+                                <?php echo t('user_profile.back_dashboard'); ?>
                             </a>
                         </div>
                     </form>
@@ -621,25 +621,25 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                 <div class="form-section">
                     <h2 class="section-title">
                         <i class="fas fa-lock text-primary"></i>
-                        <?php echo t('profile.change_password'); ?>
+                        <?php echo t('user_profile.change_password'); ?>
                     </h2>
                     
                     <form id="passwordForm" method="POST" action="change-password.php">
                         <div class="form-group">
-                            <label for="current_password" class="form-label"><?php echo t('profile.current_password'); ?></label>
+                            <label for="current_password" class="form-label"><?php echo t('user_profile.current_password'); ?></label>
                             <input type="password" class="form-control" id="current_password" name="current_password" required>
                         </div>
                         
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="new_password" class="form-label"><?php echo t('profile.new_password'); ?></label>
+                                    <label for="new_password" class="form-label"><?php echo t('user_profile.new_password'); ?></label>
                                     <input type="password" class="form-control" id="new_password" name="new_password" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="confirm_password" class="form-label"><?php echo t('profile.confirm_password'); ?></label>
+                                    <label for="confirm_password" class="form-label"><?php echo t('user_profile.confirm_password'); ?></label>
                                     <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
                                 </div>
                             </div>
@@ -647,7 +647,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
                         <button type="submit" class="btn btn-warning mt-3">
                             <i class="fas fa-key me-2"></i>
-                            <?php echo t('profile.change_password'); ?>
+                            <?php echo t('user_profile.change_password'); ?>
                         </button>
                     </form>
                 </div>
@@ -658,30 +658,30 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                 <div class="profile-card">
                     <h2 class="section-title">
                         <i class="fas fa-user-shield text-primary"></i>
-                        <?php echo t('profile.account_summary'); ?>
+                        <?php echo t('user_profile.account_summary'); ?>
                     </h2>
                     
                     <div class="mb-3">
-                        <strong><?php echo t('profile.member_since'); ?>:</strong><br>
+                        <strong><?php echo t('user_profile.member_since'); ?>:</strong><br>
                         <span class="text-muted"><?php echo $member_since; ?></span>
                     </div>
                     
                     <div class="mb-3">
-                        <strong><?php echo t('profile.member_id'); ?>:</strong><br>
+                        <strong><?php echo t('user_profile.member_id'); ?>:</strong><br>
                         <code><?php echo str_pad($member['id'], 6, '0', STR_PAD_LEFT); ?></code>
                     </div>
                     
                     <div class="mb-3">
-                        <strong><?php echo t('profile.account_status'); ?>:</strong><br>
+                        <strong><?php echo t('user_profile.account_status'); ?>:</strong><br>
                         <span class="status-badge active">
                             <i class="fas fa-check me-1"></i>
-                            <?php echo t('profile.active'); ?>
+                            <?php echo t('user_profile.active'); ?>
                         </span>
                     </div>
                     
                     <div class="mb-3">
-                        <strong><?php echo t('profile.total_payouts'); ?>:</strong><br>
-                        <span class="text-success"><?php echo $total_payouts_received; ?> <?php echo t('profile.received'); ?></span>
+                        <strong><?php echo t('user_profile.total_payouts'); ?>:</strong><br>
+                        <span class="text-success"><?php echo $total_payouts_received; ?> <?php echo t('user_profile.received'); ?></span>
                     </div>
 
                     <hr>
@@ -689,11 +689,11 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                     <div class="text-center">
                         <a href="contributions.php" class="btn btn-primary w-100 mb-2">
                             <i class="fas fa-credit-card me-2"></i>
-                            <?php echo t('profile.view_payments'); ?>
+                            <?php echo t('user_profile.view_payments'); ?>
                         </a>
                         <a href="payout-info.php" class="btn btn-warning w-100">
                             <i class="fas fa-chart-line me-2"></i>
-                            <?php echo t('profile.payout_info'); ?>
+                            <?php echo t('user_profile.payout_info'); ?>
                         </a>
                     </div>
                 </div>
@@ -716,13 +716,13 @@ $cache_buster = time() . '_' . rand(1000, 9999);
             passwordForm.addEventListener('submit', function(e) {
                 if (newPassword.value !== confirmPassword.value) {
                     e.preventDefault();
-                    alert('<?php echo t('profile.passwords_no_match'); ?>');
+                                         alert('<?php echo t('user_profile.passwords_no_match'); ?>');
                     return false;
                 }
                 
                 if (newPassword.value.length < 6) {
                     e.preventDefault();
-                    alert('<?php echo t('profile.password_min_length'); ?>');
+                                         alert('<?php echo t('user_profile.password_min_length'); ?>');
                     return false;
                 }
             });
@@ -737,7 +737,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                 
                 if (!emailRegex.test(email.value)) {
                     e.preventDefault();
-                    alert('<?php echo t('profile.email_invalid'); ?>');
+                                         alert('<?php echo t('user_profile.email_invalid'); ?>');
                     return false;
                 }
             });
