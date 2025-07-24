@@ -671,18 +671,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
             Back to Members
         </a>
 
-        <!-- Page Header -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="page-header">
-                    <h1 class="page-title">
-                        <i class="fas fa-user-circle text-primary"></i>
-                        <?php echo t('members_directory.member_profile'); ?>
-                    </h1>
-                    <p class="page-subtitle">Detailed member information and financial overview</p>
-                </div>
-            </div>
-        </div>
+
 
         <!-- Member Profile Header -->
         <div class="row mb-4">
