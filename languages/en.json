@@ -439,6 +439,7 @@
     "payments_made": "payments made",
     "completion": "completion",
     "no_payment_history": "No payment history available",
+    "no_payment_history_message": "This member hasn't made any payments yet.",
     "payout_history": "Payout History",
     "payout": "Payout",
     "received_on": "Received on",
@@ -454,6 +455,8 @@
     "payout_received": "Payout Received",
     "current_turn": "Current Turn",
     "member_since": "Member since",
+    "position_number": "Position #",
+    "back_to_members": "Back to Members",
     "invalid_member_id": "Invalid Member ID",
     "member_not_found": "Member not found or not public",
     "database_error": "Database Error"

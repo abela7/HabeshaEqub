@@ -542,7 +542,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
         <!-- Back Button -->
         <a href="members.php" class="back-button">
             <i class="fas fa-arrow-left"></i>
-            Back to Members
+            <?php echo t('members_directory.back_to_members'); ?>
         </a>
 
 
@@ -559,18 +559,18 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                         <div class="profile-meta">
                             <div class="meta-item">
                                 <i class="fas fa-trophy"></i>
-                                Position #<?php echo $member['payout_position']; ?>
+                                <?php echo t('members_directory.position_number'); ?><?php echo $member['payout_position']; ?>
                             </div>
                             <div class="meta-item">
                                 <i class="fas fa-calendar"></i>
-                                Member since <?php echo $member_since; ?>
+                                <?php echo t('members_directory.member_since'); ?> <?php echo $member_since; ?>
                             </div>
                             <div class="meta-item">
                                 <i class="fas fa-check-circle"></i>
                                 <span class="status-badge status-<?php echo $payout_status; ?>">
                                     <?php 
-                                    echo $payout_status === 'received' ? 'Payout Received' : 
-                                         ($payout_status === 'current' ? 'Current Turn' : 'Upcoming'); 
+                                    echo $payout_status === 'received' ? t('members_directory.payout_received') : 
+                                         ($payout_status === 'current' ? t('members_directory.current_turn') : t('members_directory.upcoming')); 
                                     ?>
                                 </span>
                             </div>
@@ -595,7 +595,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-coins"></i>
                             </div>
                             <div class="stat-value">£<?php echo number_format($member['monthly_payment'], 0); ?></div>
-                            <div class="stat-label">Monthly Payment</div>
+                            <div class="stat-label"><?php echo t('members_directory.monthly_payment_full'); ?></div>
                         </div>
                         
                         <div class="stat-card">
@@ -603,7 +603,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-piggy-bank"></i>
                             </div>
                             <div class="stat-value">£<?php echo number_format($member['total_contributed'], 0); ?></div>
-                            <div class="stat-label">Total Contributed</div>
+                            <div class="stat-label"><?php echo t('members_directory.total_contributed'); ?></div>
                         </div>
                         
                         <div class="stat-card">
@@ -611,7 +611,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-hand-holding-usd"></i>
                             </div>
                             <div class="stat-value">£<?php echo number_format($member['expected_payout'], 0); ?></div>
-                            <div class="stat-label">Expected Payout</div>
+                            <div class="stat-label"><?php echo t('members_directory.expected_payout'); ?></div>
                         </div>
                         
                         <div class="stat-card">
@@ -619,7 +619,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-calendar-alt"></i>
                             </div>
                             <div class="stat-value"><?php echo $expected_payout_formatted; ?></div>
-                            <div class="stat-label">Payout Date</div>
+                            <div class="stat-label"><?php echo t('members_directory.payout_date'); ?></div>
                         </div>
                     </div>
                 </div>
@@ -637,8 +637,8 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                     
                     <div class="mb-4">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="fw-bold fs-5 text-dark"><strong><?php echo $member['payments_made']; ?></strong> payments made</span>
-                            <span class="fw-bold fs-5 text-primary"><strong><?php echo number_format($payment_progress, 1); ?>%</strong> completion</span>
+                            <span class="fw-bold fs-5 text-dark"><strong><?php echo $member['payments_made']; ?></strong> <?php echo t('members_directory.payments_made'); ?></span>
+                            <span class="fw-bold fs-5 text-primary"><strong><?php echo number_format($payment_progress, 1); ?>%</strong> <?php echo t('members_directory.completion'); ?></span>
                         </div>
                         <div class="progress-bar-custom">
                             <div class="progress-fill" style="width: <?php echo $payment_progress; ?>%"></div>
@@ -652,7 +652,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                     <div class="payment-info">
                                         <h5><?php echo $payment['payment_month_name']; ?></h5>
                                         <div class="payment-date">
-                                            Paid on <?php echo $payment['formatted_date']; ?>
+                                            <?php echo t('members_directory.paid_on'); ?> <?php echo $payment['formatted_date']; ?>
                                         </div>
                                     </div>
                                     <div class="payment-amount">
@@ -664,8 +664,8 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                     <?php else: ?>
                         <div class="no-data">
                             <i class="fas fa-info-circle fa-3x mb-3"></i>
-                            <h5>No payment history available</h5>
-                            <p>This member hasn't made any payments yet.</p>
+                            <h5><?php echo t('members_directory.no_payment_history'); ?></h5>
+                            <p><?php echo t('members_directory.no_payment_history_message'); ?></p>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -679,16 +679,16 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                     <div class="profile-section">
                         <h3 class="section-title">
                             <i class="fas fa-trophy text-warning"></i>
-                            Payout History
+                            <?php echo t('members_directory.payout_history'); ?>
                         </h3>
                         
                         <div class="payment-history">
                             <?php foreach ($payout_history as $payout): ?>
                                 <div class="payment-item">
                                     <div class="payment-info">
-                                        <h5><?php echo $payout['payout_month_name']; ?> Payout</h5>
+                                        <h5><?php echo $payout['payout_month_name']; ?> <?php echo t('members_directory.payout'); ?></h5>
                                         <div class="payment-date">
-                                            Received on <?php echo $payout['formatted_date']; ?>
+                                            <?php echo t('members_directory.received_on'); ?> <?php echo $payout['formatted_date']; ?>
                                         </div>
                                     </div>
                                     <div style="text-align: right;">
@@ -696,7 +696,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                             £<?php echo number_format($payout['net_amount'], 0); ?>
                                         </div>
                                         <div style="font-size: 12px; color: var(--palette-dark-purple); opacity: 0.6;">
-                                            (Total: £<?php echo number_format($payout['total_amount'], 0); ?>)
+                                            (<?php echo t('members_directory.total'); ?>: £<?php echo number_format($payout['total_amount'], 0); ?>)
                                         </div>
                                     </div>
                                 </div>
@@ -713,7 +713,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                 <div class="profile-section">
                     <h3 class="section-title">
                         <i class="fas fa-user text-info"></i>
-                        Member Details
+                        <?php echo t('members_directory.member_details'); ?>
                     </h3>
                     
                     <div class="stats-grid">
@@ -722,7 +722,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-check-circle"></i>
                             </div>
                             <div class="stat-value"><?php echo $member['payments_made']; ?></div>
-                            <div class="stat-label">Successful Payments</div>
+                            <div class="stat-label"><?php echo t('members_directory.successful_payments'); ?></div>
                         </div>
                         
                         <div class="stat-card">
@@ -730,7 +730,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-gift"></i>
                             </div>
                             <div class="stat-value"><?php echo $member['total_payouts_received']; ?></div>
-                            <div class="stat-label">Payouts Received</div>
+                            <div class="stat-label"><?php echo t('members_directory.payouts_received'); ?></div>
                         </div>
                         
                         <div class="stat-card">
@@ -738,7 +738,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-list-ol"></i>
                             </div>
                             <div class="stat-value"><?php echo $member['payout_position']; ?> / <?php echo (int)($member['expected_payout'] / $member['monthly_payment']); ?></div>
-                            <div class="stat-label">Queue Position</div>
+                            <div class="stat-label"><?php echo t('members_directory.queue_position'); ?></div>
                         </div>
                         
                         <div class="stat-card">
@@ -746,9 +746,9 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                 <i class="fas fa-user-check"></i>
                             </div>
                             <div class="stat-value">
-                                <?php echo $member['is_approved'] ? 'Approved' : 'Pending'; ?>
+                                <?php echo $member['is_approved'] ? t('members_directory.approved') : t('members_directory.pending'); ?>
                             </div>
-                            <div class="stat-label">Account Status</div>
+                            <div class="stat-label"><?php echo t('members_directory.account_status'); ?></div>
                         </div>
                     </div>
                 </div>
