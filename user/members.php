@@ -105,7 +105,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 /* Enhanced Page Header - Top Tier Design */
 .page-header {
-    background: linear-gradient(135deg, var(--palette-cream) 0%, #FAF8F5 100%);
+    background: var(--palette-cream);
     border-radius: 24px;
     padding: 50px 40px;
     margin-bottom: 45px;
@@ -242,6 +242,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     border-radius: 15px;
     padding: 8px;
     border: 1px solid var(--palette-border);
+    position: relative;
 }
 
 .view-btn {
@@ -256,6 +257,8 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     align-items: center;
     gap: 8px;
     cursor: pointer;
+    position: relative;
+    z-index: 2;
 }
 
 .view-btn.active {
@@ -417,17 +420,16 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .stat-value {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--palette-deep-purple);
+    font-size: 14px;
+    color: var(--palette-dark-purple);
     margin: 0 0 5px 0;
+    font-weight: 500;
 }
 
 .stat-label {
-    font-size: 12px;
-    color: var(--palette-dark-purple);
-    opacity: 0.8;
-    font-weight: 500;
+    font-size: 16px;
+    color: var(--palette-deep-purple);
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -610,7 +612,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     box-shadow: 0 4px 12px rgba(42, 157, 143, 0.4);
 }
 
-/* Mobile Responsive Design - Creative & Perfect */
+    /* Mobile Responsive Design - Creative & Perfect */
 @media (max-width: 768px) {
     .container-fluid {
         padding: 0 15px;
@@ -648,6 +650,32 @@ $cache_buster = time() . '_' . rand(1000, 9999);
         padding: 20px;
     }
     
+    .view-toggle {
+        width: 100%;
+        position: relative;
+        background: var(--palette-white);
+        border: 2px solid var(--palette-border);
+        border-radius: 18px;
+        padding: 6px;
+        box-shadow: 0 4px 15px rgba(48, 25, 52, 0.08);
+    }
+    
+    .view-btn {
+        flex: 1;
+        justify-content: center;
+        padding: 16px 12px;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 14px;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .view-btn.active {
+        background: linear-gradient(135deg, var(--palette-success) 0%, var(--palette-dark-teal) 100%);
+        transform: scale(1.02);
+        box-shadow: 0 6px 20px rgba(42, 157, 143, 0.4);
+    }
+    
     .search-filter {
         width: 100%;
         justify-content: center;
@@ -675,23 +703,82 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     }
     
     .member-stats {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
     }
     
-    .members-list .list-header,
+    /* Enhanced Mobile List View */
+    .members-list {
+        border-radius: 18px;
+        background: var(--palette-white);
+        box-shadow: 0 8px 25px rgba(48, 25, 52, 0.1);
+    }
+    
+    .members-list .list-header {
+        display: none; /* Hide header on mobile */
+    }
+    
     .members-list .list-item {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        text-align: center;
+        display: block;
+        padding: 20px;
+        margin-bottom: 15px;
+        border-radius: 16px;
+        border: 1px solid var(--palette-border);
+        background: var(--palette-white);
+        box-shadow: 0 4px 15px rgba(48, 25, 52, 0.06);
+    }
+    
+    .members-list .list-item:last-child {
+        margin-bottom: 0;
     }
     
     .list-member-info {
-        justify-content: center;
+        justify-content: flex-start;
+        margin-bottom: 15px;
+    }
+    
+    .list-member-details h4 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    
+    .list-member-details span {
+        font-size: 14px;
+    }
+    
+    .mobile-stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 15px 0;
+    }
+    
+    .mobile-stat {
+        text-align: center;
+        padding: 12px;
+        background: rgba(241, 236, 226, 0.3);
+        border-radius: 12px;
+        border: 1px solid rgba(77, 64, 82, 0.08);
+    }
+    
+    .mobile-stat-value {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--palette-deep-purple);
+        margin-bottom: 3px;
+    }
+    
+    .mobile-stat-label {
+        font-size: 11px;
+        color: var(--palette-dark-purple);
+        opacity: 0.8;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
     
     .list-actions {
         justify-content: center;
+        margin-top: 15px;
     }
 }
 
@@ -850,12 +937,6 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                     
                     <div class="search-filter">
                         <input type="text" class="search-input" placeholder="<?php echo t('members_directory.search_members'); ?>" id="memberSearch">
-                        <select class="search-input" style="min-width: auto; width: 150px;" id="positionFilter">
-                            <option value=""><?php echo t('members_directory.all_positions'); ?></option>
-                            <?php for($i = 1; $i <= $total_members; $i++): ?>
-                                <option value="<?php echo $i; ?>"><?php echo t('members_directory.position'); ?> <?php echo $i; ?></option>
-                            <?php endfor; ?>
-                        </select>
                     </div>
                 </div>
             </div>
@@ -885,20 +966,20 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                             
                             <div class="member-stats">
                                 <div class="stat-block">
-                                    <div class="stat-value">£<?php echo number_format($member['monthly_payment'], 0); ?></div>
                                     <div class="stat-label"><?php echo t('members_directory.monthly'); ?></div>
+                                    <div class="stat-value">£<?php echo number_format($member['monthly_payment'], 0); ?></div>
                                 </div>
                                 <div class="stat-block">
-                                    <div class="stat-value">£<?php echo number_format($member['total_contributed'], 0); ?></div>
                                     <div class="stat-label"><?php echo t('members_directory.paid_total'); ?></div>
+                                    <div class="stat-value">£<?php echo number_format($member['total_contributed'], 0); ?></div>
                                 </div>
                                 <div class="stat-block">
-                                    <div class="stat-value">£<?php echo number_format($member['expected_payout'], 0); ?></div>
                                     <div class="stat-label"><?php echo t('members_directory.expected'); ?></div>
+                                    <div class="stat-value">£<?php echo number_format($member['expected_payout'], 0); ?></div>
                                 </div>
                                 <div class="stat-block">
-                                    <div class="stat-value"><?php echo $expected_payout_formatted; ?></div>
                                     <div class="stat-label"><?php echo t('members_directory.payout_date'); ?></div>
+                                    <div class="stat-value"><?php echo $expected_payout_formatted; ?></div>
                                 </div>
                             </div>
                             
@@ -928,11 +1009,12 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                         <div><?php echo t('members_directory.actions'); ?></div>
                     </div>
                     
-                    <?php foreach ($public_members as $member): ?>
+                                            <?php foreach ($public_members as $member): ?>
                         <?php
                         $member_name = trim($member['first_name'] . ' ' . $member['last_name']);
                         $initials = substr($member['first_name'], 0, 1) . substr($member['last_name'], 0, 1);
                         $payout_status = $member['total_payouts_received'] > 0 ? 'received' : 'pending';
+                        $expected_payout_formatted = date('M Y', strtotime($member['expected_payout_date']));
                         ?>
                         <div class="list-item" data-member-id="<?php echo $member['id']; ?>" data-name="<?php echo strtolower($member_name); ?>" data-position="<?php echo $member['payout_position']; ?>">
                             <div class="list-member-info">
@@ -944,9 +1026,31 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                                     <span><?php echo t('members_directory.position'); ?> #<?php echo $member['payout_position']; ?></span>
                                 </div>
                             </div>
-                            <div class="list-stat">£<?php echo number_format($member['monthly_payment'], 0); ?></div>
-                            <div class="list-stat">£<?php echo number_format($member['total_contributed'], 0); ?></div>
-                            <div class="list-stat">£<?php echo number_format($member['expected_payout'], 0); ?></div>
+                            
+                            <!-- Mobile Stats Grid for Mobile View -->
+                            <div class="mobile-stats-grid d-md-none">
+                                <div class="mobile-stat">
+                                    <div class="mobile-stat-value">£<?php echo number_format($member['monthly_payment'], 0); ?></div>
+                                    <div class="mobile-stat-label"><?php echo t('members_directory.monthly'); ?></div>
+                                </div>
+                                <div class="mobile-stat">
+                                    <div class="mobile-stat-value">£<?php echo number_format($member['total_contributed'], 0); ?></div>
+                                    <div class="mobile-stat-label"><?php echo t('members_directory.paid_total'); ?></div>
+                                </div>
+                                <div class="mobile-stat">
+                                    <div class="mobile-stat-value">£<?php echo number_format($member['expected_payout'], 0); ?></div>
+                                    <div class="mobile-stat-label"><?php echo t('members_directory.expected'); ?></div>
+                                </div>
+                                <div class="mobile-stat">
+                                    <div class="mobile-stat-value"><?php echo $expected_payout_formatted; ?></div>
+                                    <div class="mobile-stat-label"><?php echo t('members_directory.payout_date'); ?></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Desktop Stats for Desktop View -->
+                            <div class="list-stat d-none d-md-block">£<?php echo number_format($member['monthly_payment'], 0); ?></div>
+                            <div class="list-stat d-none d-md-block">£<?php echo number_format($member['total_contributed'], 0); ?></div>
+                            <div class="list-stat d-none d-md-block">£<?php echo number_format($member['expected_payout'], 0); ?></div>
                             <div class="list-actions">
                                 <button class="action-btn primary" onclick="openMemberProfile(<?php echo $member['id']; ?>)" title="View Profile">
                                     <i class="fas fa-eye"></i>
@@ -959,23 +1063,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
         </div>
     </div>
 
-    <!-- Member Profile Modal -->
-    <div class="modal fade" id="memberProfileModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content" style="border-radius: 20px; border: none; box-shadow: 0 20px 60px rgba(48, 25, 52, 0.2);">
-                <div class="modal-header" style="border-bottom: 1px solid var(--palette-border); padding: 25px 30px; background: linear-gradient(135deg, var(--palette-cream) 0%, #FAF8F5 100%); border-radius: 20px 20px 0 0;">
-                    <h5 class="modal-title" style="font-size: 24px; font-weight: 700; color: var(--palette-deep-purple); display: flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-user-circle text-primary"></i>
-                        <?php echo t('members_directory.member_profile'); ?>
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" style="background-size: 20px;"></button>
-                </div>
-                <div class="modal-body" id="memberProfileContent" style="padding: 30px;">
-                    <!-- Profile content will be loaded here -->
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js?v=<?php echo $cache_buster; ?>"></script>
@@ -1010,8 +1098,9 @@ $cache_buster = time() . '_' . rand(1000, 9999);
             });
         });
         
-        // Load saved view preference
-        const savedView = localStorage.getItem('memberViewPreference') || 'grid';
+        // Load saved view preference - default to grid on mobile
+        const isMobile = window.innerWidth <= 768;
+        const savedView = localStorage.getItem('memberViewPreference') || (isMobile ? 'grid' : 'grid');
         if (savedView === 'list') {
             document.querySelector('[data-view="list"]').click();
         }
@@ -1022,17 +1111,14 @@ $cache_buster = time() . '_' . rand(1000, 9999);
         
         function filterMembers() {
             const searchTerm = searchInput.value.toLowerCase();
-            const selectedPosition = positionFilter.value;
             const memberCards = document.querySelectorAll('[data-member-id]');
             
             memberCards.forEach(card => {
                 const name = card.dataset.name;
-                const position = card.dataset.position;
                 
                 const matchesSearch = !searchTerm || name.includes(searchTerm);
-                const matchesPosition = !selectedPosition || position === selectedPosition;
                 
-                if (matchesSearch && matchesPosition) {
+                if (matchesSearch) {
                     card.style.display = '';
                     card.style.animation = 'fadeInUp 0.6s ease-out';
                 } else {
@@ -1042,7 +1128,6 @@ $cache_buster = time() . '_' . rand(1000, 9999);
         }
         
         searchInput.addEventListener('input', filterMembers);
-        positionFilter.addEventListener('change', filterMembers);
         
         // Enhanced card interactions
         const memberCards = document.querySelectorAll('.member-card, .list-item');
@@ -1056,41 +1141,10 @@ $cache_buster = time() . '_' . rand(1000, 9999);
         });
     });
 
-    // Open member profile modal
+    // Open member profile page
     function openMemberProfile(memberId) {
-        const modal = new bootstrap.Modal(document.getElementById('memberProfileModal'));
-        const content = document.getElementById('memberProfileContent');
-        
-        // Show loading
-        content.innerHTML = `
-            <div class="text-center py-5">
-                <div class="spinner-border text-primary" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <p class="mt-3 text-muted"><?php echo t('members_directory.loading_profile'); ?></p>
-            </div>
-        `;
-        
-        modal.show();
-        
-        // Fetch member profile data
-        fetch(`member-profile.php?id=${memberId}`)
-            .then(response => response.text())
-            .then(html => {
-                content.innerHTML = html;
-            })
-            .catch(error => {
-                content.innerHTML = `
-                    <div class="text-center py-5">
-                        <i class="fas fa-exclamation-triangle text-warning fa-3x mb-3"></i>
-                        <h5><?php echo t('members_directory.error_loading'); ?></h5>
-                        <p class="text-muted"><?php echo t('members_directory.error_message'); ?></p>
-                        <button class="btn btn-primary" onclick="openMemberProfile(${memberId})">
-                            <i class="fas fa-redo me-2"></i><?php echo t('members_directory.try_again'); ?>
-                        </button>
-                    </div>
-                `;
-            });
+        // Navigate to standalone member profile page
+        window.location.href = `member-profile.php?id=${memberId}`;
     }
     </script>
 </body>
