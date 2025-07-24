@@ -68,30 +68,28 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 <style>
 /* === TOP-TIER PROFESSIONAL PROFILE DESIGN === */
 
-/* Custom Color Palette - Matching other pages */
+/* Brand Color Palette */
 :root {
-    --palette-cream: #F1ECE2;
-    --palette-dark-purple: #4D4052;
-    --palette-deep-purple: #301934;
-    --palette-gold: #DAA520;
-    --palette-light-gold: #CDAF56;
-    --palette-brown: #5D4225;
-    --palette-white: #FFFFFF;
-    --palette-success: #2A9D8F;
-    --palette-light-bg: #FAFAFA;
-    --palette-border: rgba(77, 64, 82, 0.1);
-    --palette-red-orange: #E76F51;
-    --palette-teal: #2A9D8F;
-    --palette-dark-teal: #0F766E;
+    --color-cream: #F1ECE2;
+    --color-dark-purple: #4D4052;
+    --color-deep-purple: #301934;
+    --color-gold: #DAA520;
+    --color-light-gold: #CDAF56;
+    --color-brown: #5D4225;
+    --color-white: #FFFFFF;
+    --color-light-bg: #FAFAFA;
+    --color-border: rgba(77, 64, 82, 0.15);
+    --color-accent: #2A9D8F;
+    --color-accent-light: #E8F5F3;
 }
 
 /* Enhanced Page Header - Top Tier Design */
 .page-header {
-    background: linear-gradient(135deg, var(--palette-cream) 0%, #FAF8F5 100%);
+    background: linear-gradient(135deg, var(--color-cream) 0%, #FAF8F5 100%);
     border-radius: 24px;
     padding: 50px 40px;
     margin-bottom: 45px;
-    border: 1px solid var(--palette-border);
+    border: 1px solid var(--color-border);
     box-shadow: 0 12px 40px rgba(48, 25, 52, 0.1);
     position: relative;
     overflow: hidden;
@@ -104,7 +102,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, var(--palette-gold) 0%, var(--palette-light-gold) 50%, var(--palette-success) 100%);
+    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-light-gold) 50%, var(--color-accent) 100%);
 }
 
 .page-header::after {
@@ -121,7 +119,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .page-title {
     font-size: 36px;
     font-weight: 700;
-    color: var(--palette-deep-purple);
+    color: var(--color-deep-purple);
     margin: 0 0 12px 0;
     letter-spacing: -0.8px;
     display: flex;
@@ -133,7 +131,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 .page-subtitle {
     font-size: 20px;
-    color: var(--palette-dark-purple);
+    color: var(--color-dark-purple);
     margin: 0;
     font-weight: 400;
     opacity: 0.85;
@@ -145,7 +143,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .section-title {
     font-size: 26px;
     font-weight: 600;
-    color: var(--palette-deep-purple);
+    color: var(--color-deep-purple);
     margin-bottom: 25px;
     display: flex;
     align-items: center;
@@ -162,16 +160,16 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     transform: translateY(-50%);
     width: 4px;
     height: 30px;
-    background: linear-gradient(180deg, var(--palette-gold) 0%, var(--palette-success) 100%);
+    background: linear-gradient(180deg, var(--color-gold) 0%, var(--color-accent) 100%);
     border-radius: 2px;
 }
 
 /* Profile Cards - Top Tier Design */
 .profile-card {
-    background: var(--palette-white);
+    background: var(--color-white);
     border-radius: 24px;
     padding: 35px 30px;
-    border: 1px solid var(--palette-border);
+    border: 1px solid var(--color-border);
     box-shadow: 0 8px 32px rgba(48, 25, 52, 0.08);
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     height: 100%;
@@ -187,7 +185,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--palette-gold) 0%, var(--palette-success) 100%);
+    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-accent) 100%);
     transform: scaleX(0);
     transition: transform 0.5s ease;
 }
@@ -221,10 +219,10 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 /* Form Styling - Premium Design */
 .form-section {
-    background: var(--palette-white);
+    background: var(--color-white);
     border-radius: 24px;
     padding: 40px 35px;
-    border: 1px solid var(--palette-border);
+    border: 1px solid var(--color-border);
     box-shadow: 0 8px 32px rgba(48, 25, 52, 0.08);
     margin-bottom: 35px;
     position: relative;
@@ -238,7 +236,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--palette-success) 0%, var(--palette-gold) 100%);
+    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-gold) 100%);
 }
 
 .form-group {
@@ -247,7 +245,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 .form-label {
     font-weight: 600;
-    color: var(--palette-deep-purple);
+    color: var(--color-deep-purple);
     margin-bottom: 10px;
     font-size: 15px;
     display: flex;
@@ -266,9 +264,9 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .form-control:focus {
-    border-color: var(--palette-gold);
+    border-color: var(--color-gold);
     box-shadow: 0 0 0 0.25rem rgba(218, 165, 32, 0.15);
-    background: var(--palette-white);
+    background: var(--color-white);
     transform: translateY(-2px);
 }
 
@@ -300,7 +298,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--palette-success) 0%, var(--palette-dark-teal) 100%);
+    background: linear-gradient(135deg, var(--color-accent) 0%, #0F766E 100%);
     color: white;
     box-shadow: 0 6px 24px rgba(42, 157, 143, 0.35);
 }
@@ -308,33 +306,33 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 36px rgba(42, 157, 143, 0.45);
-    background: linear-gradient(135deg, var(--palette-dark-teal) 0%, var(--palette-success) 100%);
+    background: linear-gradient(135deg, #0F766E 0%, var(--color-accent) 100%);
 }
 
 .btn-warning {
-    background: linear-gradient(135deg, var(--palette-gold) 0%, var(--palette-light-gold) 100%);
-    color: var(--palette-deep-purple);
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
+    color: var(--color-deep-purple);
     box-shadow: 0 6px 24px rgba(218, 165, 32, 0.35);
 }
 
 .btn-warning:hover {
     transform: translateY(-3px);
     box-shadow: 0 12px 36px rgba(218, 165, 32, 0.45);
-    color: var(--palette-deep-purple);
-    background: linear-gradient(135deg, var(--palette-light-gold) 0%, var(--palette-gold) 100%);
+    color: var(--color-deep-purple);
+    background: linear-gradient(135deg, var(--color-light-gold) 0%, var(--color-gold) 100%);
 }
 
 .btn-outline-secondary {
     background: transparent;
-    border: 2px solid var(--palette-border);
-    color: var(--palette-dark-purple);
+    border: 2px solid var(--color-border);
+    color: var(--color-dark-purple);
     backdrop-filter: blur(10px);
 }
 
 .btn-outline-secondary:hover {
-    background: var(--palette-cream);
-    border-color: var(--palette-gold);
-    color: var(--palette-deep-purple);
+    background: var(--color-cream);
+    border-color: var(--color-gold);
+    color: var(--color-deep-purple);
     transform: translateY(-2px);
 }
 
@@ -353,14 +351,14 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .status-badge.active {
-    background: linear-gradient(135deg, var(--palette-success) 0%, var(--palette-dark-teal) 100%);
+    background: linear-gradient(135deg, var(--color-accent) 0%, #0F766E 100%);
     color: white;
     box-shadow: 0 4px 16px rgba(42, 157, 143, 0.3);
 }
 
 .status-badge.pending {
-    background: linear-gradient(135deg, var(--palette-gold) 0%, var(--palette-light-gold) 100%);
-    color: var(--palette-deep-purple);
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
+    color: var(--color-deep-purple);
     box-shadow: 0 4px 16px rgba(218, 165, 32, 0.3);
 }
 
@@ -383,7 +381,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .account-info-label {
     font-size: 14px;
     font-weight: 600;
-    color: var(--palette-dark-purple);
+    color: var(--color-dark-purple);
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -391,7 +389,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 .account-info-value {
     font-size: 16px;
-    color: var(--palette-deep-purple);
+    color: var(--color-deep-purple);
     font-weight: 500;
 }
 
@@ -704,7 +702,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                             <?php echo t('user_profile.member_id'); ?>
                         </div>
                         <div class="account-info-value">
-                            <code style="background: var(--palette-cream); padding: 4px 8px; border-radius: 6px; color: var(--palette-deep-purple);">
+                            <code style="background: var(--color-cream); padding: 4px 8px; border-radius: 6px; color: var(--color-deep-purple);">
                                 <?php echo str_pad($member['id'], 6, '0', STR_PAD_LEFT); ?>
                             </code>
                         </div>
@@ -733,7 +731,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                         </div>
                     </div>
 
-                    <hr style="border-color: var(--palette-border); margin: 25px 0;">
+                    <hr style="border-color: var(--color-border); margin: 25px 0;">
                     
                     <div class="d-grid gap-3">
                         <a href="contributions.php" class="btn btn-primary">
@@ -779,10 +777,10 @@ $cache_buster = time() . '_' . rand(1000, 9999);
             confirmPassword.addEventListener('input', function() {
                 if (newPassword.value && confirmPassword.value) {
                     if (newPassword.value === confirmPassword.value) {
-                        confirmPassword.style.borderColor = 'var(--palette-success)';
+                        confirmPassword.style.borderColor = 'var(--color-accent)';
                         confirmPassword.style.boxShadow = '0 0 0 0.25rem rgba(42, 157, 143, 0.15)';
                     } else {
-                        confirmPassword.style.borderColor = 'var(--palette-red-orange)';
+                        confirmPassword.style.borderColor = '#E76F51';
                         confirmPassword.style.boxShadow = '0 0 0 0.25rem rgba(231, 111, 81, 0.15)';
                     }
                 }
@@ -813,10 +811,10 @@ $cache_buster = time() . '_' . rand(1000, 9999);
             emailInput.addEventListener('blur', function() {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (this.value && !emailRegex.test(this.value)) {
-                    this.style.borderColor = 'var(--palette-red-orange)';
+                    this.style.borderColor = '#E76F51';
                     this.style.boxShadow = '0 0 0 0.25rem rgba(231, 111, 81, 0.15)';
                 } else if (this.value) {
-                    this.style.borderColor = 'var(--palette-success)';
+                    this.style.borderColor = 'var(--color-accent)';
                     this.style.boxShadow = '0 0 0 0.25rem rgba(42, 157, 143, 0.15)';
                 }
             });
