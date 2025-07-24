@@ -1222,7 +1222,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
         <div class="table-section">
             <h2 class="section-title">
                 <i class="fas fa-receipt text-primary"></i>
-                Recent Payments
+                <?php echo t('member_dashboard.recent_payments'); ?>
             </h2>
             
             <div class="table-container">
