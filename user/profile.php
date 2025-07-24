@@ -68,7 +68,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 <style>
 /* === TOP-TIER PROFESSIONAL PROFILE DESIGN === */
 
-/* Brand Color Palette */
+/* Professional 6-Color Palette - Clean & Consistent */
 :root {
     --color-cream: #F1ECE2;
     --color-dark-purple: #4D4052;
@@ -77,10 +77,8 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     --color-light-gold: #CDAF56;
     --color-brown: #5D4225;
     --color-white: #FFFFFF;
-    --color-light-bg: #FAFAFA;
+    --color-light-bg: #F1ECE2;
     --color-border: rgba(77, 64, 82, 0.15);
-    --color-accent: #2A9D8F;
-    --color-accent-light: #E8F5F3;
 }
 
 /* Enhanced Page Header - Top Tier Design */
@@ -102,7 +100,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-light-gold) 50%, var(--color-accent) 100%);
+    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
 }
 
 .page-header::after {
@@ -160,7 +158,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     transform: translateY(-50%);
     width: 4px;
     height: 30px;
-    background: linear-gradient(180deg, var(--color-gold) 0%, var(--color-accent) 100%);
+    background: linear-gradient(180deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
     border-radius: 2px;
 }
 
@@ -185,7 +183,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-accent) 100%);
+    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
     transform: scaleX(0);
     transition: transform 0.5s ease;
 }
@@ -236,7 +234,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-gold) 100%);
+    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
 }
 
 .form-group {
@@ -298,15 +296,15 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-accent) 0%, #0F766E 100%);
+    background: linear-gradient(135deg, var(--color-deep-purple) 0%, var(--color-dark-purple) 100%);
     color: white;
-    box-shadow: 0 6px 24px rgba(42, 157, 143, 0.35);
+    box-shadow: 0 6px 24px rgba(48, 25, 52, 0.35);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 36px rgba(42, 157, 143, 0.45);
-    background: linear-gradient(135deg, #0F766E 0%, var(--color-accent) 100%);
+    box-shadow: 0 12px 36px rgba(48, 25, 52, 0.45);
+    background: linear-gradient(135deg, var(--color-dark-purple) 0%, var(--color-deep-purple) 100%);
 }
 
 .btn-warning {
@@ -351,9 +349,9 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .status-badge.active {
-    background: linear-gradient(135deg, var(--color-accent) 0%, #0F766E 100%);
-    color: white;
-    box-shadow: 0 4px 16px rgba(42, 157, 143, 0.3);
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
+    color: var(--color-deep-purple);
+    box-shadow: 0 4px 16px rgba(218, 165, 32, 0.3);
 }
 
 .status-badge.pending {
@@ -777,11 +775,11 @@ $cache_buster = time() . '_' . rand(1000, 9999);
             confirmPassword.addEventListener('input', function() {
                 if (newPassword.value && confirmPassword.value) {
                     if (newPassword.value === confirmPassword.value) {
-                        confirmPassword.style.borderColor = 'var(--color-accent)';
-                        confirmPassword.style.boxShadow = '0 0 0 0.25rem rgba(42, 157, 143, 0.15)';
+                        confirmPassword.style.borderColor = 'var(--color-gold)';
+                        confirmPassword.style.boxShadow = '0 0 0 0.25rem rgba(218, 165, 32, 0.15)';
                     } else {
-                        confirmPassword.style.borderColor = '#E76F51';
-                        confirmPassword.style.boxShadow = '0 0 0 0.25rem rgba(231, 111, 81, 0.15)';
+                        confirmPassword.style.borderColor = 'var(--color-brown)';
+                        confirmPassword.style.boxShadow = '0 0 0 0.25rem rgba(93, 66, 37, 0.15)';
                     }
                 }
             });
@@ -811,11 +809,11 @@ $cache_buster = time() . '_' . rand(1000, 9999);
             emailInput.addEventListener('blur', function() {
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (this.value && !emailRegex.test(this.value)) {
-                    this.style.borderColor = '#E76F51';
-                    this.style.boxShadow = '0 0 0 0.25rem rgba(231, 111, 81, 0.15)';
+                    this.style.borderColor = 'var(--color-brown)';
+                    this.style.boxShadow = '0 0 0 0.25rem rgba(93, 66, 37, 0.15)';
                 } else if (this.value) {
-                    this.style.borderColor = 'var(--color-accent)';
-                    this.style.boxShadow = '0 0 0 0.25rem rgba(42, 157, 143, 0.15)';
+                    this.style.borderColor = 'var(--color-gold)';
+                    this.style.boxShadow = '0 0 0 0.25rem rgba(218, 165, 32, 0.15)';
                 }
             });
 

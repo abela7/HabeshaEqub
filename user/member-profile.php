@@ -123,7 +123,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 <style>
 /* === CLEAN PROFESSIONAL MEMBER PROFILE === */
 
-/* Brand Color Palette */
+/* Professional 6-Color Palette - Clean & Consistent */
 :root {
     --color-cream: #F1ECE2;
     --color-dark-purple: #4D4052;
@@ -132,10 +132,8 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     --color-light-gold: #CDAF56;
     --color-brown: #5D4225;
     --color-white: #FFFFFF;
-    --color-light-bg: #FAFAFA;
+    --color-light-bg: #F1ECE2;
     --color-border: rgba(77, 64, 82, 0.15);
-    --color-accent: #2A9D8F;
-    --color-accent-light: #E8F5F3;
 }
 
 /* Typography - Consistent Font Sizes */
@@ -387,8 +385,8 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .status-received {
-    background: var(--color-accent-light);
-    color: var(--color-accent);
+    background: var(--color-cream);
+    color: var(--color-gold);
 }
 
 .status-current {

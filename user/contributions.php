@@ -139,7 +139,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 <style>
 /* === PROFESSIONAL CONTRIBUTIONS PAGE DESIGN === */
 
-/* Brand Color Palette */
+/* Professional 6-Color Palette - Clean & Consistent */
 :root {
     --color-cream: #F1ECE2;
     --color-dark-purple: #4D4052;
@@ -148,10 +148,8 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     --color-light-gold: #CDAF56;
     --color-brown: #5D4225;
     --color-white: #FFFFFF;
-    --color-light-bg: #FAFAFA;
+    --color-light-bg: #F1ECE2;
     --color-border: rgba(77, 64, 82, 0.15);
-    --color-accent: #2A9D8F;
-    --color-accent-light: #E8F5F3;
 }
 
 /* Page Header */
@@ -266,8 +264,8 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .financial-icon.success { 
-    background: linear-gradient(135deg, var(--color-accent) 0%, #0F766E 100%);
-    box-shadow: 0 8px 24px rgba(42, 157, 143, 0.3);
+    background: linear-gradient(135deg, var(--color-deep-purple) 0%, var(--color-dark-purple) 100%);
+    box-shadow: 0 8px 24px rgba(48, 25, 52, 0.3);
 }
 
 .financial-icon.warning { 
@@ -441,9 +439,9 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .badge.status-paid {
-    background: linear-gradient(135deg, var(--color-accent) 0%, #0F766E 100%);
+    background: linear-gradient(135deg, var(--color-deep-purple) 0%, var(--color-dark-purple) 100%);
     color: white;
-    box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
+    box-shadow: 0 2px 8px rgba(48, 25, 52, 0.3);
 }
 
 .badge.status-pending {
@@ -475,15 +473,15 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--color-accent) 0%, #0F766E 100%);
+    background: linear-gradient(135deg, var(--color-deep-purple) 0%, var(--color-dark-purple) 100%);
     border: none;
     color: white;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #0F766E 0%, var(--color-accent) 100%);
+    background: linear-gradient(135deg, var(--color-dark-purple) 0%, var(--color-deep-purple) 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(42, 157, 143, 0.4);
+    box-shadow: 0 6px 20px rgba(48, 25, 52, 0.4);
 }
 
 .btn-warning {
@@ -576,7 +574,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .verification-status.verified {
-    color: var(--color-accent);
+    color: var(--color-gold);
 }
 
 .verification-status.pending {
