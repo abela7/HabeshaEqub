@@ -726,7 +726,7 @@ $csrf_token = generate_csrf_token();
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #264653 0%, #2A9D8F 100%);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -739,30 +739,9 @@ $csrf_token = generate_csrf_token();
     visibility: hidden;
 }
 
-.preloader-content {
-    text-align: center;
-    color: white;
-}
-
-.preloader-logo {
-    font-size: 32px;
-    font-weight: 700;
-    color: #E9C46A;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
 .preloader-svg {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 20px;
-}
-
-.preloader-text {
-    font-size: 14px;
-    color: #F1ECE2;
-    opacity: 0.8;
-    font-weight: 500;
+    width: 100px;
+    height: 100px;
 }
 
 /* === APP CONTENT === */
@@ -785,23 +764,19 @@ $csrf_token = generate_csrf_token();
 
 <!-- Preloader -->
 <div class="preloader" id="preloader">
-    <div class="preloader-content">
-        <div class="preloader-logo">HabeshaEqub</div>
-        <div class="preloader-svg">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width="100%" height="100%" style="shape-rendering: auto; display: block; background: transparent;" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <g>
-                    <circle stroke-width="25" stroke="#E9C46A" fill="none" r="0" cy="50" cx="50">
-                        <animate begin="0s" calcMode="spline" keySplines="0 0.2 0.8 1" keyTimes="0;1" values="0;44" dur="2s" repeatCount="indefinite" attributeName="r"></animate>
-                        <animate begin="0s" calcMode="spline" keySplines="0.2 0 0.8 1" keyTimes="0;1" values="1;0" dur="2s" repeatCount="indefinite" attributeName="opacity"></animate>
-                    </circle>
-                    <circle stroke-width="25" stroke="#E76F51" fill="none" r="0" cy="50" cx="50">
-                        <animate begin="-1s" calcMode="spline" keySplines="0 0.2 0.8 1" keyTimes="0;1" values="0;44" dur="2s" repeatCount="indefinite" attributeName="r"></animate>
-                        <animate begin="-1s" calcMode="spline" keySplines="0.2 0 0.8 1" keyTimes="0;1" values="1;0" dur="2s" repeatCount="indefinite" attributeName="opacity"></animate>
-                    </circle>
-                </g>
-            </svg>
-        </div>
-        <div class="preloader-text"><?php echo t('common.loading'); ?></div>
+    <div class="preloader-svg">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width="100%" height="100%" style="shape-rendering: auto; display: block; background: transparent;" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g>
+                <circle stroke-width="25" stroke="#E9C46A" fill="none" r="0" cy="50" cx="50">
+                    <animate begin="0s" calcMode="spline" keySplines="0 0.2 0.8 1" keyTimes="0;1" values="0;44" dur="2s" repeatCount="indefinite" attributeName="r"></animate>
+                    <animate begin="0s" calcMode="spline" keySplines="0.2 0 0.8 1" keyTimes="0;1" values="1;0" dur="2s" repeatCount="indefinite" attributeName="opacity"></animate>
+                </circle>
+                <circle stroke-width="25" stroke="#E76F51" fill="none" r="0" cy="50" cx="50">
+                    <animate begin="-1s" calcMode="spline" keySplines="0 0.2 0.8 1" keyTimes="0;1" values="0;44" dur="2s" repeatCount="indefinite" attributeName="r"></animate>
+                    <animate begin="-1s" calcMode="spline" keySplines="0.2 0 0.8 1" keyTimes="0;1" values="1;0" dur="2s" repeatCount="indefinite" attributeName="opacity"></animate>
+                </circle>
+            </g>
+        </svg>
     </div>
 </div>
 
