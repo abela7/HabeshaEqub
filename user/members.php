@@ -86,30 +86,32 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 <style>
 /* === CLEAN PROFESSIONAL MEMBERS DIRECTORY === */
 
-/* Minimal Color Palette */
+/* Brand Color Palette */
 :root {
+    --color-cream: #F1ECE2;
+    --color-dark-purple: #4D4052;
+    --color-deep-purple: #301934;
+    --color-gold: #DAA520;
+    --color-light-gold: #CDAF56;
+    --color-brown: #5D4225;
     --color-white: #FFFFFF;
-    --color-light-bg: #F8F9FA;
-    --color-border: #E9ECEF;
-    --color-text-primary: #212529;
-    --color-text-secondary: #6C757D;
+    --color-light-bg: #FAFAFA;
+    --color-border: rgba(77, 64, 82, 0.15);
     --color-accent: #2A9D8F;
     --color-accent-light: #E8F5F3;
-    --color-warning: #F59E0B;
-    --color-warning-light: #FEF3C7;
 }
 
 /* Typography - Consistent Font Sizes */
 .page-title {
     font-size: 24px;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--color-deep-purple);
     margin: 0 0 8px 0;
 }
 
 .page-subtitle {
     font-size: 14px;
-    color: var(--color-text-secondary);
+    color: var(--color-dark-purple);
     margin: 0;
 }
 
@@ -145,31 +147,31 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .stat-icon.primary { 
-    background: var(--color-accent-light);
-    color: var(--color-accent);
+    background: var(--color-cream);
+    color: var(--color-deep-purple);
 }
 
 .stat-icon.warning { 
-    background: var(--color-warning-light);
-    color: var(--color-warning);
+    background: rgba(218, 165, 32, 0.15);
+    color: var(--color-gold);
 }
 
 .stat-icon.info { 
-    background: var(--color-light-bg);
-    color: var(--color-text-secondary);
+    background: rgba(77, 64, 82, 0.1);
+    color: var(--color-dark-purple);
 }
 
 .stat-content h3 {
     font-size: 18px;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--color-deep-purple);
     margin: 0;
     line-height: 1;
 }
 
 .stat-content p {
     font-size: 13px;
-    color: var(--color-text-secondary);
+    color: var(--color-dark-purple);
     margin: 2px 0 0 0;
 }
 
@@ -189,7 +191,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 .view-toggle {
     display: flex;
-    background: var(--color-light-bg);
+    background: var(--color-cream);
     border-radius: 8px;
     padding: 4px;
     border: 1px solid var(--color-border);
@@ -200,7 +202,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     background: transparent;
     padding: 8px 16px;
     border-radius: 6px;
-    color: var(--color-text-secondary);
+    color: var(--color-dark-purple);
     font-weight: 500;
     font-size: 14px;
     transition: all 0.2s ease;
@@ -211,13 +213,13 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .view-btn.active {
-    background: var(--color-white);
-    color: var(--color-text-primary);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    background: var(--color-deep-purple);
+    color: var(--color-cream);
 }
 
 .view-btn:hover:not(.active) {
-    color: var(--color-text-primary);
+    background: rgba(77, 64, 82, 0.1);
+    color: var(--color-deep-purple);
 }
 
 /* Search Input */
@@ -232,9 +234,9 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .search-input:focus {
-    border-color: var(--color-accent);
+    border-color: var(--color-gold);
     outline: none;
-    box-shadow: 0 0 0 3px var(--color-accent-light);
+    box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.15);
 }
 
 /* Member Cards - Clean Grid */
@@ -252,12 +254,24 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     border: 1px solid var(--color-border);
     transition: all 0.2s ease;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.member-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
 }
 
 .member-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-color: var(--color-accent);
+    box-shadow: 0 4px 12px rgba(77, 64, 82, 0.15);
+    border-color: var(--color-gold);
 }
 
 .member-header {
@@ -271,11 +285,11 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    background: var(--color-accent);
+    background: var(--color-deep-purple);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-cream);
     font-size: 16px;
     font-weight: 600;
     flex-shrink: 0;
@@ -284,14 +298,14 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .member-info h3 {
     font-size: 16px;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--color-deep-purple);
     margin: 0 0 4px 0;
 }
 
 .member-position {
     font-size: 12px;
-    color: var(--color-text-secondary);
-    background: var(--color-light-bg);
+    color: var(--color-gold);
+    background: rgba(218, 165, 32, 0.15);
     padding: 2px 8px;
     border-radius: 12px;
     font-weight: 500;
@@ -307,25 +321,25 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .stat-block {
     text-align: center;
     padding: 12px;
-    background: var(--color-light-bg);
+    background: var(--color-cream);
     border-radius: 8px;
     transition: background-color 0.2s ease;
 }
 
 .stat-block:hover {
-    background: var(--color-accent-light);
+    background: rgba(205, 175, 86, 0.2);
 }
 
 .stat-value {
     font-size: 14px;
-    color: var(--color-text-secondary);
+    color: var(--color-dark-purple);
     margin: 0 0 4px 0;
     font-weight: 500;
 }
 
 .stat-label {
     font-size: 12px;
-    color: var(--color-text-primary);
+    color: var(--color-deep-purple);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -345,7 +359,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     gap: 6px;
     font-size: 12px;
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: var(--color-dark-purple);
 }
 
 .status-indicator {
@@ -355,12 +369,12 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .status-received { background: var(--color-accent); }
-.status-pending { background: var(--color-warning); }
-.status-upcoming { background: var(--color-text-secondary); }
+.status-pending { background: var(--color-gold); }
+.status-upcoming { background: var(--color-dark-purple); }
 
 .view-profile-btn {
-    background: var(--color-accent);
-    color: white;
+    background: var(--color-gold);
+    color: var(--color-deep-purple);
     border: none;
     padding: 6px 12px;
     border-radius: 6px;
@@ -370,7 +384,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .view-profile-btn:hover {
-    background: #238B7A;
+    background: var(--color-light-gold);
 }
 
 /* Member List - Clean Design */
@@ -387,10 +401,10 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .list-header {
-    background: var(--color-light-bg);
+    background: var(--color-cream);
     padding: 16px 20px;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--color-deep-purple);
     font-size: 14px;
     border-bottom: 1px solid var(--color-border);
     display: grid;
@@ -411,7 +425,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .list-item:hover {
-    background: var(--color-light-bg);
+    background: var(--color-cream);
 }
 
 .list-item:last-child {
@@ -428,11 +442,11 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     width: 32px;
     height: 32px;
     border-radius: 6px;
-    background: var(--color-accent);
+    background: var(--color-deep-purple);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-cream);
     font-size: 14px;
     font-weight: 600;
 }
@@ -440,20 +454,20 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .list-member-details h4 {
     font-size: 14px;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--color-deep-purple);
     margin: 0 0 2px 0;
 }
 
 .list-member-details span {
     font-size: 12px;
-    color: var(--color-text-secondary);
+    color: var(--color-gold);
     font-weight: 500;
 }
 
 .list-stat {
     font-size: 14px;
     font-weight: 500;
-    color: var(--color-text-primary);
+    color: var(--color-deep-purple);
 }
 
 .list-actions {
@@ -471,13 +485,13 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     justify-content: center;
     transition: background-color 0.2s ease;
     cursor: pointer;
-    background: var(--color-accent);
-    color: white;
+    background: var(--color-gold);
+    color: var(--color-deep-purple);
     font-size: 12px;
 }
 
 .action-btn:hover {
-    background: #238B7A;
+    background: var(--color-light-gold);
 }
 
 /* Mobile Responsive Design - Professional & Clean */
@@ -525,9 +539,9 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     }
     
     .view-btn.active {
-        background: var(--color-accent);
-        color: white;
-        box-shadow: 0 2px 8px rgba(42, 157, 143, 0.2);
+        background: var(--color-gold);
+        color: var(--color-deep-purple);
+        box-shadow: 0 2px 8px rgba(218, 165, 32, 0.2);
     }
     
     .search-input {
@@ -585,20 +599,20 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     .mobile-stat {
         text-align: center;
         padding: 8px;
-        background: var(--color-light-bg);
+        background: var(--color-cream);
         border-radius: 6px;
     }
     
     .mobile-stat-value {
         font-size: 14px;
         font-weight: 600;
-        color: var(--color-text-primary);
+        color: var(--color-deep-purple);
         margin-bottom: 2px;
     }
     
     .mobile-stat-label {
         font-size: 11px;
-        color: var(--color-text-secondary);
+        color: var(--color-dark-purple);
         text-transform: uppercase;
         letter-spacing: 0.3px;
         font-weight: 500;

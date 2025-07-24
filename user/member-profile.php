@@ -123,36 +123,38 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 <style>
 /* === CLEAN PROFESSIONAL MEMBER PROFILE === */
 
-/* Minimal Color Palette */
+/* Brand Color Palette */
 :root {
+    --color-cream: #F1ECE2;
+    --color-dark-purple: #4D4052;
+    --color-deep-purple: #301934;
+    --color-gold: #DAA520;
+    --color-light-gold: #CDAF56;
+    --color-brown: #5D4225;
     --color-white: #FFFFFF;
-    --color-light-bg: #F8F9FA;
-    --color-border: #E9ECEF;
-    --color-text-primary: #212529;
-    --color-text-secondary: #6C757D;
+    --color-light-bg: #FAFAFA;
+    --color-border: rgba(77, 64, 82, 0.15);
     --color-accent: #2A9D8F;
     --color-accent-light: #E8F5F3;
-    --color-warning: #F59E0B;
-    --color-warning-light: #FEF3C7;
 }
 
 /* Typography - Consistent Font Sizes */
 .page-title {
     font-size: 24px;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--color-deep-purple);
     margin: 0 0 8px 0;
 }
 
 .page-subtitle {
     font-size: 14px;
-    color: var(--color-text-secondary);
+    color: var(--color-dark-purple);
     margin: 0;
 }
 
 .back-button {
-    background: var(--color-accent);
-    color: white;
+    background: var(--color-gold);
+    color: var(--color-deep-purple);
     border: none;
     padding: 8px 16px;
     border-radius: 8px;
@@ -167,8 +169,8 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .back-button:hover {
-    background: #238B7A;
-    color: white;
+    background: var(--color-light-gold);
+    color: var(--color-deep-purple);
 }
 
 /* Member Profile Header - Clean & Simple */
@@ -181,17 +183,29 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     background: var(--color-white);
     border-radius: 12px;
     border: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.member-profile-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
 }
 
 .profile-avatar {
     width: 60px;
     height: 60px;
     border-radius: 12px;
-    background: var(--color-accent);
+    background: var(--color-deep-purple);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-cream);
     font-size: 24px;
     font-weight: 600;
     flex-shrink: 0;
@@ -200,7 +214,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .profile-info h2 {
     font-size: 24px;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--color-deep-purple);
     margin: 0 0 8px 0;
 }
 
@@ -216,8 +230,8 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     align-items: center;
     gap: 6px;
     font-size: 12px;
-    color: var(--color-text-secondary);
-    background: var(--color-light-bg);
+    color: var(--color-dark-purple);
+    background: var(--color-cream);
     padding: 4px 8px;
     border-radius: 16px;
     font-weight: 500;
@@ -230,7 +244,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .section-title {
     font-size: 18px;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--color-deep-purple);
     margin-bottom: 16px;
     display: flex;
     align-items: center;
@@ -239,7 +253,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 .section-title i {
     font-size: 16px;
-    color: var(--color-accent);
+    color: var(--color-gold);
 }
 
 .stats-grid {
@@ -256,12 +270,24 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     padding: 16px;
     text-align: center;
     transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
 }
 
 .stat-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-color: var(--color-accent);
+    box-shadow: 0 4px 12px rgba(77, 64, 82, 0.15);
+    border-color: var(--color-gold);
 }
 
 .stat-icon {
@@ -276,30 +302,30 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .stat-icon.primary { 
-    background: var(--color-accent-light);
-    color: var(--color-accent);
+    background: var(--color-cream);
+    color: var(--color-deep-purple);
 }
 
 .stat-icon.warning { 
-    background: var(--color-warning-light);
-    color: var(--color-warning);
+    background: rgba(218, 165, 32, 0.15);
+    color: var(--color-gold);
 }
 
 .stat-icon.info { 
-    background: var(--color-light-bg);
-    color: var(--color-text-secondary);
+    background: rgba(77, 64, 82, 0.1);
+    color: var(--color-dark-purple);
 }
 
 .stat-value {
     font-size: 20px;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--color-deep-purple);
     margin: 0 0 4px 0;
 }
 
 .stat-label {
     font-size: 12px;
-    color: var(--color-text-secondary);
+    color: var(--color-dark-purple);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -322,7 +348,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .payment-item:hover {
-    background: var(--color-light-bg);
+    background: var(--color-cream);
 }
 
 .payment-item:last-child {
@@ -332,20 +358,20 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .payment-info h5 {
     font-size: 16px;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--color-deep-purple);
     margin: 0 0 4px 0;
 }
 
 .payment-date {
     font-size: 12px;
-    color: var(--color-text-secondary);
+    color: var(--color-dark-purple);
     font-weight: 500;
 }
 
 .payment-amount {
     font-size: 18px;
     font-weight: 600;
-    color: var(--color-accent);
+    color: var(--color-gold);
 }
 
 .status-badge {
@@ -366,17 +392,17 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .status-current {
-    background: var(--color-warning-light);
-    color: var(--color-warning);
+    background: rgba(218, 165, 32, 0.15);
+    color: var(--color-gold);
 }
 
 .status-upcoming {
-    background: var(--color-light-bg);
-    color: var(--color-text-secondary);
+    background: rgba(77, 64, 82, 0.1);
+    color: var(--color-dark-purple);
 }
 
 .progress-bar-custom {
-    background: var(--color-light-bg);
+    background: var(--color-cream);
     border-radius: 8px;
     height: 8px;
     overflow: hidden;
@@ -385,7 +411,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 .progress-fill {
     height: 100%;
-    background: var(--color-accent);
+    background: var(--color-gold);
     border-radius: 8px;
     transition: width 1s ease;
 }
@@ -393,24 +419,24 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .no-data {
     text-align: center;
     padding: 40px;
-    color: var(--color-text-secondary);
+    color: var(--color-dark-purple);
 }
 
 .no-data i {
-    color: var(--color-accent);
+    color: var(--color-gold);
     margin-bottom: 12px;
 }
 
 .no-data h5 {
     font-size: 16px;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--color-deep-purple);
     margin-bottom: 8px;
 }
 
 .no-data p {
     font-size: 14px;
-    color: var(--color-text-secondary);
+    color: var(--color-dark-purple);
     margin: 0;
 }
 
