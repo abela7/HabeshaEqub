@@ -1,13 +1,16 @@
 <?php
 /**
- * HabeshaEqub Main Landing Page
- * Welcome page with navigation to admin and member sections
+ * HabeshaEqub Main Index Page
+ * Redirects users to the user dashboard
  */
 
 // Include database for session handling
 require_once 'includes/db.php';
+
+// Redirect to user dashboard
+header("Location: user/dashboard.php");
+exit();
 ?>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
