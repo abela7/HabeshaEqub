@@ -571,7 +571,10 @@
     "schedule_queue": "Schedule & Queue",
     "updates_alerts": "Updates & Alerts",
     "account_management": "Account Management",
-    "recent_payments_desc": "Your latest payment transactions and history"
+    "recent_payments_desc": "Your latest payment transactions and history",
+    "equb_rules": "Equb Rules & Regulations",
+    "equb_rules_desc": "Important rules and guidelines for all members",
+    "rule_number": "Rule"
   },
   "contributions": {
     "page_title": "My Payments",

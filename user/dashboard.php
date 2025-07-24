@@ -88,6 +88,21 @@ try {
     $has_paid_this_month = false;
 }
 
+// Get active equb rules for accordion
+try {
+    $stmt = $pdo->prepare("
+        SELECT rule_number, rule_en, rule_am 
+        FROM equb_rules 
+        WHERE is_active = 1 
+        ORDER BY rule_number ASC
+    ");
+    $stmt->execute();
+    $equb_rules = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    $equb_rules = [];
+    error_log("Equb rules fetch error: " . $e->getMessage());
+}
+
 // Strong cache buster for assets
 $cache_buster = time() . '_' . rand(1000, 9999);
 ?>
@@ -983,6 +998,192 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .card, .btn, .badge, .action-card, .stat-card {
     will-change: transform;
 }
+
+/* === EQUB RULES ACCORDION SECTION === */
+.rules-section {
+    background: var(--palette-white);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 40px;
+    border: 1px solid var(--palette-border);
+    box-shadow: 0 8px 32px rgba(48, 25, 67, 0.08);
+}
+
+.rules-section .section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--palette-deep-purple);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rules-section .section-subtitle {
+    color: var(--palette-dark-purple);
+    font-size: 16px;
+    margin-bottom: 24px;
+    opacity: 0.8;
+}
+
+/* Accordion Styling */
+.accordion {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--palette-border);
+}
+
+.accordion-item {
+    border: none;
+    border-bottom: 1px solid var(--palette-border);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    margin-bottom: 0;
+}
+
+.accordion-button {
+    background: var(--palette-cream);
+    border: none;
+    padding: 20px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--palette-deep-purple);
+    border-radius: 0;
+    box-shadow: none;
+    transition: all 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) {
+    background: var(--palette-gold);
+    color: var(--palette-white);
+    box-shadow: none;
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(218, 165, 32, 0.25);
+    border-color: var(--palette-gold);
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23301934'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transition: transform 0.3s ease;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transform: rotate(-180deg);
+}
+
+.rule-number-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 12px;
+    display: inline-block;
+}
+
+.accordion-button:not(.collapsed) .rule-number-badge {
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--palette-white);
+}
+
+.accordion-body {
+    padding: 24px;
+    background: var(--palette-white);
+}
+
+.rule-content {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--palette-deep-purple);
+    text-align: justify;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .rules-section {
+        padding: 20px;
+        margin-bottom: 24px;
+        border-radius: 16px;
+    }
+    
+    .rules-section .section-title {
+        font-size: 22px;
+        margin-bottom: 6px;
+    }
+    
+    .rules-section .section-subtitle {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    
+    .accordion-button {
+        padding: 16px 20px;
+        font-size: 15px;
+    }
+    
+    .rule-number-badge {
+        font-size: 13px;
+        padding: 4px 10px;
+        margin-right: 8px;
+    }
+    
+    .accordion-body {
+        padding: 20px;
+    }
+    
+    .rule-content {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 576px) {
+    .rules-section {
+        padding: 16px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+    }
+    
+    .rules-section .section-title {
+        font-size: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .rules-section .section-subtitle {
+        font-size: 13px;
+    }
+    
+    .accordion-button {
+        padding: 14px 16px;
+        font-size: 14px;
+    }
+    
+    .rule-number-badge {
+        font-size: 12px;
+        padding: 3px 8px;
+        margin-right: 6px;
+    }
+    
+    .accordion-body {
+        padding: 16px;
+    }
+    
+    .rule-content {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
+}
 </style>
 
 </head>
@@ -1216,6 +1417,50 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                 </div>
             </div>
         </div>
+
+        <!-- Equb Rules Accordion Section -->
+        <?php if (!empty($equb_rules)): ?>
+        <div class="rules-section">
+            <h2 class="section-title">
+                <i class="fas fa-gavel text-warning"></i>
+                <?php echo t('member_dashboard.equb_rules'); ?>
+            </h2>
+            <p class="section-subtitle"><?php echo t('member_dashboard.equb_rules_desc'); ?></p>
+            
+            <div class="accordion" id="equbRulesAccordion">
+                <?php foreach ($equb_rules as $index => $rule): ?>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading<?php echo $rule['rule_number']; ?>">
+                        <button class="accordion-button <?php echo $index === 0 ? '' : 'collapsed'; ?>" 
+                                type="button" 
+                                data-bs-toggle="collapse" 
+                                data-bs-target="#collapse<?php echo $rule['rule_number']; ?>" 
+                                aria-expanded="<?php echo $index === 0 ? 'true' : 'false'; ?>" 
+                                aria-controls="collapse<?php echo $rule['rule_number']; ?>">
+                            <span class="rule-number-badge">
+                                <?php echo t('member_dashboard.rule_number'); ?> <?php echo $rule['rule_number']; ?>
+                            </span>
+                        </button>
+                    </h2>
+                    <div id="collapse<?php echo $rule['rule_number']; ?>" 
+                         class="accordion-collapse collapse <?php echo $index === 0 ? 'show' : ''; ?>" 
+                         aria-labelledby="heading<?php echo $rule['rule_number']; ?>" 
+                         data-bs-parent="#equbRulesAccordion">
+                        <div class="accordion-body">
+                            <div class="rule-content">
+                                <?php 
+                                // Display content based on current language
+                                $content = (getCurrentLanguage() === 'am') ? $rule['rule_am'] : $rule['rule_en'];
+                                echo nl2br(htmlspecialchars($content)); 
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <?php endif; ?>
 
         <!-- Recent Payments Section -->
         <?php if (!empty($recent_payments)): ?>

@@ -571,7 +571,10 @@
     "schedule_queue": "መርሃ ግብር እና ወረፋ",
     "updates_alerts": "ዝማኔዎች እና ማንቂያዎች",
     "account_management": "አካውንትዎን አስተዳድሩ",
-    "recent_payments_desc": "የእርስዎ የቅርብ ጊዜ ክፍያዎች"
+    "recent_payments_desc": "የእርስዎ የቅርብ ጊዜ ክፍያዎች",
+    "equb_rules": "የእቁብ ህጎችና ደንቦች",
+    "equb_rules_desc": "ለሁሉም አባላት አስፈላጊ ህጎችና መመሪያዎች",
+    "rule_number": "ህግ"
   },
   "member_nav": {
     "overview": "አጠቃላይ እይታ",
