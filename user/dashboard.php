@@ -1190,13 +1190,13 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <a href="notifications.php" class="action-card">
+                    <a href="members.php" class="action-card">
                         <div class="action-header">
                             <div class="action-icon warning">
-                                <i class="fas fa-bell"></i>
+                                <i class="fas fa-users"></i>
                             </div>
                             <div class="action-title-group">
-                                <h4>Notifications</h4>
+                                <h4><?php echo t('member_nav.equb_members'); ?></h4>
                             </div>
                         </div>
                     </a>

@@ -786,13 +786,14 @@ $csrf_token = generate_csrf_token();
                  <!-- Account Section -->
          <div class="nav-section">
              <div class="nav-section-title"><?php echo t('member_nav.account'); ?></div>
-             <a href="notifications.php" class="nav-item <?php echo ($current_page === 'notifications.php') ? 'active' : ''; ?>">
+             <a href="members.php" class="nav-item <?php echo ($current_page === 'members.php') ? 'active' : ''; ?>">
                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                     <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
-                     <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                     <circle cx="9" cy="7" r="4"/>
+                     <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                     <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                  </svg>
-                 <span class="nav-text"><?php echo t('member_nav.notifications'); ?></span>
-                 <span class="nav-badge">3</span>
+                 <span class="nav-text"><?php echo t('member_nav.equb_members'); ?></span>
              </a>
              <a href="profile.php" class="nav-item <?php echo ($current_page === 'profile.php') ? 'active' : ''; ?>">
                  <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -849,7 +850,8 @@ $csrf_token = generate_csrf_token();
                     'dashboard.php' => t('member_nav.dashboard'),
                     'contributions.php' => t('member_nav.contributions'),
                     'payout-info.php' => t('member_nav.payout_info'),
-                    'notifications.php' => t('member_nav.notifications'),
+                    'members.php' => t('member_nav.equb_members'),
+                    'member-profile.php' => t('navigation.member_profile'),
                     'profile.php' => t('member_nav.profile'),
                     'help.php' => t('member_nav.help'),
                     'contact.php' => t('member_nav.contact')
@@ -900,12 +902,14 @@ $csrf_token = generate_csrf_token();
                         </svg>
                         <?php echo t('member_nav.my_profile'); ?>
                     </a>
-                    <a href="notifications.php" class="dropdown-item">
+                    <a href="members.php" class="dropdown-item">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>
-                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                         </svg>
-                        <?php echo t('member_nav.notifications'); ?>
+                        <?php echo t('member_nav.equb_members'); ?>
                     </a>
                     <button class="dropdown-item logout" onclick="handleLogout()">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
