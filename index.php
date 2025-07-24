@@ -1,7 +1,7 @@
 <?php
 /**
  * HabeshaEqub Main Index Page
- * Redirects users to the user dashboard
+ * Redirects users to the user dashboard!
  */
 
 // Include database for session handling
