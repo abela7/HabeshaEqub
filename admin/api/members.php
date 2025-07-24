@@ -118,8 +118,10 @@ function addMember() {
         
         $member_id = "HEM-{$initials}{$next_number}";
         
-        // Generate random 6-character password
+        // Generate random 6-character password for the new member
         $password = generateRandomPassword();
+        // Hash the password before storing
+        $password_hash = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12]);
         
         // Calculate payout month (assuming monthly cycle starting from current month)
         $start_date = new DateTime();
@@ -140,16 +142,16 @@ function addMember() {
         ");
         
         $result = $stmt->execute([
-            $member_id, $first_name, $last_name, $email, $phone, $password,
+            $member_id, $first_name, $last_name, $email, $phone, $password_hash,
             $monthly_payment, $payout_position, $payout_month,
-            $guarantor_first_name, $guarantor_last_name, $guarantor_phone, 
+            $guarantor_first_name, $guarantor_last_name, $guarantor_phone,
             $guarantor_email, $guarantor_relationship, $notes
         ]);
         
         if ($result) {
             echo json_encode([
-                'success' => true, 
-                'message' => 'Member added successfully',
+                'success' => true,
+                'message' => 'Member added successfully. Please communicate the password securely.',
                 'member_id' => $member_id,
                 'password' => $password
             ]);
