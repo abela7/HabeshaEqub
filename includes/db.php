@@ -9,7 +9,7 @@
 // Database Configuration - MODIFY THESE FOR YOUR SERVER
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'habeshjv_habeshaequb');
-define('DB_USER', 'abel');        // Server database user
+define('DB_USER', 'habeshjv_abel');        // Server database user (username_username pattern)
 define('DB_PASS', '2121@Habesha'); // Server database password
 
 // Error reporting for development (disable in production)
