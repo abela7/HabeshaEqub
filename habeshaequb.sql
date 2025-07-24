@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2025 at 11:10 PM
+-- Generation Time: Jul 24, 2025 at 04:40 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -106,6 +106,8 @@ CREATE TABLE `members` (
   `join_date` date NOT NULL,
   `last_login` timestamp NULL DEFAULT NULL,
   `notification_preferences` set('email','sms','both') DEFAULT 'both',
+  `go_public` tinyint(1) NOT NULL DEFAULT 1 COMMENT 'Public visibility: 1=Yes (public), 0=No (private)',
+  `language_preference` tinyint(1) NOT NULL DEFAULT 0 COMMENT 'Web language: 0=English, 1=Amharic',
   `notes` text DEFAULT NULL COMMENT 'Admin notes about member',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -115,12 +117,12 @@ CREATE TABLE `members` (
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`id`, `member_id`, `username`, `first_name`, `last_name`, `full_name`, `email`, `phone`, `password`, `status`, `monthly_payment`, `payout_position`, `payout_month`, `total_contributed`, `has_received_payout`, `guarantor_first_name`, `guarantor_last_name`, `guarantor_phone`, `guarantor_email`, `guarantor_relationship`, `is_active`, `is_approved`, `email_verified`, `join_date`, `last_login`, `notification_preferences`, `notes`, `created_at`, `updated_at`) VALUES
-(1, 'HEM-MW1', 'michael', 'Michael', 'Werkneh', 'Michael Werkneh', 'michael.werkneh@email.com', '+447123456789', '$2y$12$kdwSiI7P37OpM7OVFH4rMOHH2W7Yywf08O3DItvLGCVH6ZKqI/qBi', 'active', 1000.00, 1, '0000-00-00', 6000.00, 1, 'Sarah', 'Werkneh', '+447123456790', 'sarah.werkneh@email.com', 'Wife', 1, 1, 1, '2024-05-15', '2025-07-23 20:42:30', 'email,sms', 'First member - received June payout', '2025-07-22 07:24:42', '2025-07-23 20:42:30'),
-(2, 'HEM-MN2', NULL, 'Maeruf', 'Nasir', NULL, 'maeruf.nasir@email.com', '+447234567890', 'MN456B', 'active', 1000.00, 2, '0000-00-00', 1000.00, 0, 'Ahmed', 'Nasir', '+447234567891', 'ahmed.nasir@email.com', 'Brother', 1, 1, 1, '2024-05-15', '2024-06-18 13:15:00', 'email', 'Active member - good payment record', '2025-07-22 07:24:42', '2025-07-22 17:19:23'),
-(3, 'HEM-TE3', NULL, 'Teddy', 'Elias', NULL, 'teddy.elias@email.com', '+447345678901', 'TE789C', 'active', 1000.00, 3, '0000-00-00', 1500.00, 0, 'Helen', 'Elias', '+447345678902', 'helen.elias@email.com', 'Mother', 1, 1, 1, '2024-05-15', '2024-06-19 15:45:00', 'email,sms', 'Reliable member', '2025-07-22 07:24:42', '2025-07-22 19:43:11'),
-(4, 'HEM-KG4', NULL, 'Kokit', 'Gormesa', NULL, 'kokit.gormesa@email.com', '+447456789012', 'KG012D', 'active', 1000.00, 4, '0000-00-00', 1000.00, 0, 'Dawit', 'Gormesa', '+447456789013', 'dawit.gormesa@email.com', 'Husband', 1, 1, 1, '2024-05-15', '2024-06-17 11:20:00', 'sms', 'New member - very enthusiastic', '2025-07-22 07:24:42', '2025-07-22 16:40:27'),
-(5, 'HEM-MA5', NULL, 'Mahlet', 'Ayalew', NULL, 'mahlet.ayalew@email.com', '+447567890123', 'MA345E', 'active', 1000.00, 5, '0000-00-00', 1000.00, 0, 'Bereket', 'Ayalew', '+447567890124', 'bereket.ayalew@email.com', 'Father', 1, 1, 1, '2024-05-15', '2024-06-21 08:10:00', 'email,sms', 'Last position - patient member', '2025-07-22 07:24:42', '2025-07-22 07:24:42');
+INSERT INTO `members` (`id`, `member_id`, `username`, `first_name`, `last_name`, `full_name`, `email`, `phone`, `password`, `status`, `monthly_payment`, `payout_position`, `payout_month`, `total_contributed`, `has_received_payout`, `guarantor_first_name`, `guarantor_last_name`, `guarantor_phone`, `guarantor_email`, `guarantor_relationship`, `is_active`, `is_approved`, `email_verified`, `join_date`, `last_login`, `notification_preferences`, `go_public`, `language_preference`, `notes`, `created_at`, `updated_at`) VALUES
+(1, 'HEM-MW1', 'michael', 'Michael', 'Werkneh', 'Michael Werkneh', 'michael.werkneh@email.com', '+447123456789', '$2y$12$kdwSiI7P37OpM7OVFH4rMOHH2W7Yywf08O3DItvLGCVH6ZKqI/qBi', 'active', 1000.00, 1, '0000-00-00', 6000.00, 1, 'Sarah', 'Werkneh', '+447123456790', 'sarah.werkneh@email.com', 'Wife', 1, 1, 1, '2024-05-15', '2025-07-23 20:42:30', 'email,sms', 1, 0, 'First member - received June payout', '2025-07-22 07:24:42', '2025-07-23 20:42:30'),
+(2, 'HEM-MN2', NULL, 'Maeruf', 'Nasir', NULL, 'maeruf.nasir@email.com', '+447234567890', 'MN456B', 'active', 1000.00, 2, '0000-00-00', 1000.00, 0, 'Ahmed', 'Nasir', '+447234567891', 'ahmed.nasir@email.com', 'Brother', 1, 1, 1, '2024-05-15', '2024-06-18 13:15:00', 'email', 1, 0, 'Active member - good payment record', '2025-07-22 07:24:42', '2025-07-22 17:19:23'),
+(3, 'HEM-TE3', NULL, 'Teddy', 'Elias', NULL, 'teddy.elias@email.com', '+447345678901', 'TE789C', 'active', 1000.00, 3, '0000-00-00', 1500.00, 0, 'Helen', 'Elias', '+447345678902', 'helen.elias@email.com', 'Mother', 1, 1, 1, '2024-05-15', '2024-06-19 15:45:00', 'email,sms', 1, 0, 'Reliable member', '2025-07-22 07:24:42', '2025-07-22 19:43:11'),
+(4, 'HEM-KG4', NULL, 'Kokit', 'Gormesa', NULL, 'kokit.gormesa@email.com', '+447456789012', 'KG012D', 'active', 1000.00, 4, '0000-00-00', 1000.00, 0, 'Dawit', 'Gormesa', '+447456789013', 'dawit.gormesa@email.com', 'Husband', 1, 1, 1, '2024-05-15', '2024-06-17 11:20:00', 'sms', 1, 0, 'New member - very enthusiastic', '2025-07-22 07:24:42', '2025-07-22 16:40:27'),
+(5, 'HEM-MA5', NULL, 'Mahlet', 'Ayalew', NULL, 'mahlet.ayalew@email.com', '+447567890123', 'MA345E', 'active', 1000.00, 5, '0000-00-00', 1000.00, 0, 'Bereket', 'Ayalew', '+447567890124', 'bereket.ayalew@email.com', 'Father', 1, 1, 1, '2024-05-15', '2024-06-21 08:10:00', 'email,sms', 1, 0, 'Last position - patient member', '2025-07-22 07:24:42', '2025-07-22 07:24:42');
 
 -- --------------------------------------------------------
 
