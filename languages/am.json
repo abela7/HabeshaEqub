@@ -15,7 +15,9 @@
     "actions": "ድርጊቶች",
     "members": "አባላት",
     "member": "አባል",
-    "unknown_month": "ያልታወቀ ወር"
+    "unknown_month": "ያልታወቀ ወር",
+    "on": "በ",
+    "of": "ከ"
   },
   "navigation": {
     "dashboard": "ዳሽቦርድ",
@@ -596,7 +598,7 @@
   "contributions": {
     "page_title": "የእቁብ ክፍያዎች",
     "page_subtitle": "የእቁብ ክፍያዎችዎን ይከታተሉ",
-    "financial_summary": "የገንዘብ ማጠቃለያ",
+    "financial_summary": "አሁናዊ ሁኔታዎ",
     "financial_summary_desc": "የእርስዎ ሙሉ የክፍያ አጠቃላይ እይታ እና የክፍያ ሁኔታ",
     "payment_history": "የክፍያ ታሪክ",
     "payment_history_desc": "የሁሉም የእቁብ ክፍያዎች ዝርዝር",
@@ -604,7 +606,7 @@
     "total_paid": "ጠቅላላ የተከፈለ",
     "total_paid_desc": "እስካሁን የከፈሉት የእቁብ መጠን",
     "payment_progress": "የክፍያ እድገት", 
-    "payment_progress_desc": "ወደ የሚጠበቀው ጠቅላላ የእርስዎ የመዋጮ እድገት",
+    "payment_progress_desc": "ከጠቅላላ እቁቡ የከፈሉት መጠን",
     "next_payment": "ቀጣይ ክፍያ",
     "next_payment_desc": "የሚቀጥለው የክፍያ ዝርዝሮች እና የመጨረሻ ቀን",
     "current_month": "የአሁኑ ወር",
@@ -632,6 +634,8 @@
     "pending": "በመጠባበቅ ላይ",
     "late": "ዘግይቷል",
     "missed": "አልተከፈለም",
+    "not_paid": "አልተከፈለም",
+    "not_specified": "ያልተገለጸ",
     "processing": "በሂደት ላይ",
     "cash": "ጥሬ ገንዘብ",
     "bank_transfer": "የባንክ ዝውውር",
@@ -658,7 +662,7 @@
     "payment_notes": "የክፍያ ማስታወሻዎች",
     "admin_notes": "የአስተዳዳሪ ማስታወሻዎች",
     "no_payments_found": "ምንም ክፍያዎች አልተገኙም",
-    "no_payments_message": "እስካሁን ምንም ክፍያዎች አላደረጉም። የመጀመሪያ መዋጮዎን በማድረግ ይጀምሩ።",
+    "no_payments_message": "እስካሁን ምንም ክፍያዎች አላደረጉም። የመጀመሪያ ክፍያዎትን በማድረግ ይጀምሩ።",
     "contribution_success": "መዋጮ በተሳካ ሁኔታ ተመዝግቧል!",
     "payment_submitted": "ክፍያ ለማረጋገጥ ተልኳል",
     "outstanding_balance": "ያልተከፈለ ቀሪ",
@@ -670,7 +674,7 @@
     "monthly": "ወርሃዊ",
     "on_time_rate": "በጊዜው የመክፈል መጠን",
     "payment_performance": "የክፍያ አፈጻጸም",
-    "excellent": "ግሩም",
+    "excellent": "በጣም ሃሪፍ",
     "good": "ጥሩ",
     "needs_improvement": "መሻሻል ያስፈልጋል",
     "total_late_fees": "ጠቅላላ የዘገይ ክፍያዎች",
@@ -680,7 +684,9 @@
     "contribute_now": "አሁን ያዋጡ",
     "view_all": "ሁሉንም ይመልከቱ",
     "export_history": "ታሪክ ላክ",
-    "print_statement": "መግለጫ አትም"
+    "print_statement": "መግለጫ አትም",
+    "thank_you_payment": "ክፍያዎን ስለ ከፈሉ እናመሰግናለን!",
+    "automated_receipt": "ይህ በራስ ሰር የተዘጋጀ ደረሰኝ ነው"
   },
   "payout": {
     "page_title": "የእርስዎ የክፍያ መረጃ",

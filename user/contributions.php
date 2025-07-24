@@ -908,17 +908,17 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                              <i class="fas fa-piggy-bank"></i>
                          </div>
                          <div class="financial-title">
-                             <h3>You have paid £<?php echo number_format($total_contributed, 2); ?> so far</h3>
+                             <h3><?php echo t('contributions.total_paid_desc'); ?> £<?php echo number_format($total_contributed, 2); ?></h3>
                          </div>
                      </div>
                      <div class="financial-detail">
                          <i class="fas fa-calendar me-1"></i>
-                         <?php echo $total_payments; ?> payments made
+                         <?php echo $total_payments; ?> <?php echo t('contributions.payments_made'); ?>
                      </div>
                      <?php if ($member['total_late_fees'] > 0): ?>
                      <div class="financial-detail text-warning">
                          <i class="fas fa-exclamation-triangle me-1"></i>
-                         £<?php echo number_format($member['total_late_fees'], 2); ?> late fees
+                         £<?php echo number_format($member['total_late_fees'], 2); ?> <?php echo t('contributions.total_late_fees'); ?>
                      </div>
                      <?php endif; ?>
                  </div>
@@ -932,7 +932,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                              <i class="fas fa-chart-line"></i>
                          </div>
                          <div class="financial-title">
-                             <h3>Your progress is <?php echo number_format($progress_percentage, 1); ?>%</h3>
+                             <h3><?php echo t('contributions.payment_progress_desc'); ?> <?php echo number_format($progress_percentage, 1); ?>%</h3>
                          </div>
                      </div>
                      <div class="financial-detail">
@@ -955,19 +955,19 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                          </div>
                          <div class="financial-title">
                              <?php if ($current_payment && $current_payment['status'] === 'paid'): ?>
-                                 <h3>Payment complete for <?php echo date('F Y'); ?></h3>
+                                 <h3><?php echo t('contributions.payment_complete'); ?> <?php echo date('F Y'); ?></h3>
                              <?php else: ?>
-                                 <h3>£<?php echo number_format($monthly_contribution, 2); ?> due in <?php echo $days_until_due; ?> days</h3>
+                                 <h3>£<?php echo number_format($monthly_contribution, 2); ?> <?php echo sprintf(t('contributions.due_in_days'), $days_until_due); ?></h3>
                              <?php endif; ?>
                          </div>
                      </div>
                      <div class="financial-detail">
                          <?php if ($current_payment && $current_payment['status'] === 'paid'): ?>
                              <i class="fas fa-check text-success me-1"></i>
-                             Paid £<?php echo number_format($current_payment['amount'], 2); ?> on <?php echo date('M d', strtotime($current_payment['payment_date'])); ?>
+                             <?php echo t('contributions.paid'); ?> £<?php echo number_format($current_payment['amount'], 2); ?> <?php echo t('common.on'); ?> <?php echo date('M d', strtotime($current_payment['payment_date'])); ?>
                          <?php else: ?>
                              <i class="fas fa-clock text-warning me-1"></i>
-                             Payment for <?php echo date('F Y'); ?>
+                             <?php echo t('contributions.payment_due'); ?> <?php echo date('F Y'); ?>
                          <?php endif; ?>
                      </div>
                  </div>
@@ -981,14 +981,14 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                              <i class="fas fa-trophy"></i>
                          </div>
                          <div class="financial-title">
-                             <h3>Your performance is <?php echo number_format($on_time_rate, 1); ?>% - 
+                             <h3><?php echo t('contributions.payment_performance'); ?> <?php echo number_format($on_time_rate, 1); ?>% - 
                              <?php 
                              if ($on_time_rate >= 95) {
-                                 echo 'Excellent';
+                                 echo t('contributions.excellent');
                              } elseif ($on_time_rate >= 80) {
-                                 echo 'Good';
+                                 echo t('contributions.good');
                              } else {
-                                 echo 'Needs improvement';
+                                 echo t('contributions.needs_improvement');
                              }
                              ?></h3>
                          </div>
@@ -1003,7 +1003,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                              echo '<i class="fas fa-exclamation-triangle text-warning me-1"></i>';
                          }
                          ?>
-                         <?php echo $on_time_payments; ?> of <?php echo $total_payments; ?> payments on time
+                         <?php echo $on_time_payments; ?> <?php echo t('common.of'); ?> <?php echo $total_payments; ?> <?php echo t('contributions.payments_made'); ?> <?php echo t('contributions.on_time_rate'); ?>
                      </div>
                  </div>
              </div>
@@ -1177,7 +1177,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                     </button>
                                                              <button type="button" class="btn btn-warning" id="printReceiptBtn" style="background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-light-gold) 100%); border: 2px solid var(--color-light-gold); color: var(--color-deep-purple);">
                         <i class="fas fa-print me-2"></i>
-                        Print Receipt
+                        <?php echo t('contributions.print_statement'); ?>
                     </button>
                 </div>
             </div>
@@ -1188,52 +1188,52 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     <div class="receipt-print" id="receiptTemplate" style="display: none;">
         <div class="receipt-header">
             <div class="receipt-title">HABESHA EQUB</div>
-            <div class="receipt-subtitle">Payment Receipt</div>
+            <div class="receipt-subtitle"><?php echo t('contributions.payment_details'); ?></div>
             <div class="receipt-date" id="receipt-print-date"></div>
         </div>
         
                  <div class="receipt-details">
-             <div class="receipt-row">
-                 <span><strong>Member:</strong></span>
-                 <span id="receipt-member-name"></span>
-             </div>
-             <div class="receipt-row">
-                 <span><strong>Payment ID:</strong></span>
-                 <span id="receipt-payment-id"></span>
-             </div>
-             <div class="receipt-row">
-                 <span><strong>Payment Month:</strong></span>
-                 <span id="receipt-payment-month"></span>
-             </div>
-             <div class="receipt-row">
-                 <span><strong>Payment Date:</strong></span>
-                 <span id="receipt-payment-date"></span>
-             </div>
-             <div class="receipt-row">
-                 <span><strong>Payment Method:</strong></span>
-                 <span id="receipt-payment-method"></span>
-             </div>
-             <div class="receipt-row">
-                 <span><strong>Amount:</strong></span>
-                 <span id="receipt-amount"></span>
-             </div>
-             <div class="receipt-row" id="receipt-late-fee-row" style="display: none;">
-                 <span><strong>Late Fee:</strong></span>
-                 <span id="receipt-late-fee"></span>
-             </div>
-             <div class="receipt-row">
-                 <span><strong>Status:</strong></span>
-                 <span id="receipt-status"></span>
-             </div>
-             <div class="receipt-row">
-                 <span><strong>Verification:</strong></span>
-                 <span id="receipt-verification"></span>
-             </div>
+                              <div class="receipt-row">
+                     <span><strong><?php echo t('common.member'); ?>:</strong></span>
+                     <span id="receipt-member-name"></span>
+                 </div>
+                 <div class="receipt-row">
+                     <span><strong><?php echo t('contributions.payment_id'); ?>:</strong></span>
+                     <span id="receipt-payment-id"></span>
+                 </div>
+                 <div class="receipt-row">
+                     <span><strong><?php echo t('contributions.payment_month'); ?>:</strong></span>
+                     <span id="receipt-payment-month"></span>
+                 </div>
+                 <div class="receipt-row">
+                     <span><strong><?php echo t('contributions.payment_date'); ?>:</strong></span>
+                     <span id="receipt-payment-date"></span>
+                 </div>
+                 <div class="receipt-row">
+                     <span><strong><?php echo t('contributions.payment_method'); ?>:</strong></span>
+                     <span id="receipt-payment-method"></span>
+                 </div>
+                 <div class="receipt-row">
+                     <span><strong><?php echo t('contributions.amount'); ?>:</strong></span>
+                     <span id="receipt-amount"></span>
+                 </div>
+                 <div class="receipt-row" id="receipt-late-fee-row" style="display: none;">
+                     <span><strong><?php echo t('contributions.late_fee'); ?>:</strong></span>
+                     <span id="receipt-late-fee"></span>
+                 </div>
+                 <div class="receipt-row">
+                     <span><strong><?php echo t('contributions.status'); ?>:</strong></span>
+                     <span id="receipt-status"></span>
+                 </div>
+                 <div class="receipt-row">
+                     <span><strong><?php echo t('contributions.verification'); ?>:</strong></span>
+                     <span id="receipt-verification"></span>
+                 </div>
          </div>
         
         <div class="receipt-footer">
-            <p>Thank you for your payment!</p>
-            <p>This is an automated receipt generated on <span id="receipt-generated-date"></span></p>
+            <p><?php echo t('contributions.thank_you_payment'); ?></p>
+            <p><?php echo t('contributions.automated_receipt'); ?> <span id="receipt-generated-date"></span></p>
         </div>
     </div>
 
@@ -1369,7 +1369,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
              document.getElementById('receipt-member-name').textContent = paymentData.memberName;
              document.getElementById('receipt-payment-id').textContent = paymentData.paymentId;
              document.getElementById('receipt-payment-month').textContent = paymentData.paymentMonth;
-             document.getElementById('receipt-payment-date').textContent = paymentData.paymentDate || 'Not specified';
+             document.getElementById('receipt-payment-date').textContent = paymentData.paymentDate || '<?php echo t("contributions.not_specified"); ?>';
              document.getElementById('receipt-payment-method').textContent = paymentData.method;
              document.getElementById('receipt-amount').textContent = '£' + paymentData.amount;
              
@@ -1385,17 +1385,17 @@ $cache_buster = time() . '_' . rand(1000, 9999);
              // Set status based on verification
              let receiptStatus = '';
              if (paymentData.verification === 'verified') {
-                 receiptStatus = 'PAID - VERIFIED';
+                 receiptStatus = '<?php echo t("contributions.paid"); ?> - <?php echo t("contributions.verified"); ?>';
              } else if (paymentData.verification === 'pending_verification') {
-                 receiptStatus = 'PAID - PENDING VERIFICATION';
+                 receiptStatus = '<?php echo t("contributions.paid"); ?> - <?php echo t("contributions.pending_verification"); ?>';
              } else {
-                 receiptStatus = 'NOT PAID';
+                 receiptStatus = '<?php echo t("contributions.not_paid"); ?>';
              }
              
              document.getElementById('receipt-status').textContent = receiptStatus;
              document.getElementById('receipt-verification').textContent = 
-                 paymentData.verification === 'verified' ? 'VERIFIED' : 
-                 paymentData.verification === 'pending_verification' ? 'PENDING' : 'NOT VERIFIED';
+                 paymentData.verification === 'verified' ? '<?php echo t("contributions.verified"); ?>' : 
+                 paymentData.verification === 'pending_verification' ? '<?php echo t("contributions.pending"); ?>' : '<?php echo t("contributions.not_verified"); ?>';
              
              // Set dates
              const now = new Date();

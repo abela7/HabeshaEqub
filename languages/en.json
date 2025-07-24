@@ -15,7 +15,9 @@
     "actions": "Actions",
     "members": "members",
     "member": "member",
-    "unknown_month": "Unknown Month"
+    "unknown_month": "Unknown Month",
+    "on": "on",
+    "of": "of"
   },
   "navigation": {
     "dashboard": "Dashboard",
@@ -607,6 +609,8 @@
     "pending": "Pending", 
     "late": "Late",
     "missed": "Missed",
+    "not_paid": "Not Paid",
+    "not_specified": "Not specified",
     "processing": "Processing",
     "cash": "Cash",
     "bank_transfer": "Bank Transfer",
@@ -655,7 +659,9 @@
     "contribute_now": "Contribute Now",
     "view_all": "View All",
     "export_history": "Export History",
-    "print_statement": "Print Statement"
+    "print_statement": "Print Statement",
+    "thank_you_payment": "Thank you for your payment!",
+    "automated_receipt": "This is an automated receipt generated on"
   },
   "member_nav": {
     "overview": "Overview",
