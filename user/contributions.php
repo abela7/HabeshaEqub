@@ -139,29 +139,28 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 <style>
 /* === PROFESSIONAL CONTRIBUTIONS PAGE DESIGN === */
 
-/* Color Palette */
+/* Brand Color Palette */
 :root {
-    --palette-cream: #F1ECE2;
-    --palette-dark-purple: #4D4052;
-    --palette-deep-purple: #301934;
-    --palette-gold: #DAA520;
-    --palette-light-gold: #CDAF56;
-    --palette-brown: #5D4225;
-    --palette-white: #FFFFFF;
-    --palette-success: #2A9D8F;
-    --palette-light-bg: #FAFAFA;
-    --palette-border: rgba(77, 64, 82, 0.1);
-    --palette-warning: #F59E0B;
-    --palette-danger: #DC2626;
+    --color-cream: #F1ECE2;
+    --color-dark-purple: #4D4052;
+    --color-deep-purple: #301934;
+    --color-gold: #DAA520;
+    --color-light-gold: #CDAF56;
+    --color-brown: #5D4225;
+    --color-white: #FFFFFF;
+    --color-light-bg: #FAFAFA;
+    --color-border: rgba(77, 64, 82, 0.15);
+    --color-accent: #2A9D8F;
+    --color-accent-light: #E8F5F3;
 }
 
 /* Page Header */
 .page-header {
-    background: linear-gradient(135deg, var(--palette-cream) 0%, #FAF8F5 100%);
+    background: linear-gradient(135deg, var(--color-cream) 0%, #FAF8F5 100%);
     border-radius: 16px;
     padding: 24px 28px;
     margin-bottom: 24px;
-    border: 1px solid var(--palette-border);
+    border: 1px solid var(--color-border);
     box-shadow: 0 4px 20px rgba(48, 25, 52, 0.06);
     position: relative;
     overflow: hidden;
@@ -174,13 +173,13 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--palette-gold) 0%, var(--palette-light-gold) 100%);
+    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
 }
 
 .page-header h1 {
     font-size: 28px;
     font-weight: 700;
-    color: var(--palette-deep-purple);
+    color: var(--color-deep-purple);
     margin: 0 0 6px 0;
     display: flex;
     align-items: center;
@@ -189,7 +188,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 .page-header p {
     font-size: 16px;
-    color: var(--palette-dark-purple);
+    color: var(--color-dark-purple);
     margin: 0;
     opacity: 0.8;
 }
@@ -198,7 +197,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .section-title {
     font-size: 22px;
     font-weight: 700;
-    color: var(--palette-deep-purple);
+    color: var(--color-deep-purple);
     margin-bottom: 12px;
     display: flex;
     align-items: center;
@@ -207,17 +206,17 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 .section-subtitle {
     font-size: 15px;
-    color: var(--palette-dark-purple);
+    color: var(--color-dark-purple);
     margin-bottom: 16px;
     opacity: 0.8;
 }
 
 /* Financial Summary Cards */
 .financial-card {
-    background: var(--palette-white);
+    background: var(--color-white);
     border-radius: 16px;
     padding: 20px;
-    border: 1px solid var(--palette-border);
+    border: 1px solid var(--color-border);
     box-shadow: 0 4px 20px rgba(48, 25, 52, 0.06);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     height: 100%;
@@ -232,7 +231,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--palette-gold) 0%, var(--palette-light-gold) 100%);
+    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
     transform: scaleX(0);
     transition: transform 0.4s ease;
 }
@@ -267,36 +266,36 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .financial-icon.success { 
-    background: linear-gradient(135deg, var(--palette-success) 0%, #0F766E 100%);
+    background: linear-gradient(135deg, var(--color-accent) 0%, #0F766E 100%);
     box-shadow: 0 8px 24px rgba(42, 157, 143, 0.3);
 }
 
 .financial-icon.warning { 
-    background: linear-gradient(135deg, var(--palette-warning) 0%, var(--palette-gold) 100%);
-    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
+    box-shadow: 0 8px 24px rgba(218, 165, 32, 0.3);
 }
 
 .financial-icon.primary { 
-    background: linear-gradient(135deg, var(--palette-gold) 0%, var(--palette-light-gold) 100%);
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
     box-shadow: 0 8px 24px rgba(218, 165, 32, 0.3);
 }
 
 .financial-icon.info { 
-    background: linear-gradient(135deg, var(--palette-deep-purple) 0%, var(--palette-dark-purple) 100%);
+    background: linear-gradient(135deg, var(--color-deep-purple) 0%, var(--color-dark-purple) 100%);
     box-shadow: 0 8px 24px rgba(48, 25, 52, 0.3);
 }
 
  .financial-title h3 {
      font-size: 18px;
      font-weight: 700;
-     color: var(--palette-deep-purple);
+     color: var(--color-deep-purple);
      margin: 0;
      line-height: 1.3;
  }
  
  .financial-title .description {
      font-size: 13px;
-     color: var(--palette-dark-purple);
+     color: var(--color-dark-purple);
      margin: 0;
      opacity: 0.7;
  }
@@ -304,14 +303,14 @@ $cache_buster = time() . '_' . rand(1000, 9999);
  .financial-value {
      font-size: 24px;
      font-weight: 700;
-     color: var(--palette-deep-purple);
+     color: var(--color-deep-purple);
      margin: 12px 0 6px 0;
      line-height: 1;
  }
 
 .financial-detail {
     font-size: 13px;
-    color: var(--palette-dark-purple);
+    color: var(--color-dark-purple);
     margin: 6px 0 0 0;
     opacity: 0.8;
 }
@@ -330,7 +329,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 .progress-bar {
     border-radius: 10px;
-    background: linear-gradient(90deg, var(--palette-gold) 0%, var(--palette-light-gold) 100%);
+    background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
     box-shadow: 0 2px 8px rgba(218, 165, 32, 0.3);
 }
 
@@ -340,11 +339,11 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .table-container {
-    background: var(--palette-white);
+    background: var(--color-white);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(48, 25, 52, 0.06);
-    border: 1px solid var(--palette-border);
+    border: 1px solid var(--color-border);
     max-width: 100%;
     margin: 0;
 }
@@ -358,12 +357,12 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 .table-controls {
     padding: 12px;
-    background: linear-gradient(135deg, var(--palette-cream) 0%, #FAF8F5 100%);
-    border-bottom: 1px solid var(--palette-border);
+    background: linear-gradient(135deg, var(--color-cream) 0%, #FAF8F5 100%);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .search-box {
-    border: 1px solid var(--palette-border);
+    border: 1px solid var(--color-border);
     border-radius: 10px;
     padding: 10px 14px;
     font-size: 14px;
@@ -371,13 +370,13 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .search-box:focus {
-    border-color: var(--palette-gold);
+    border-color: var(--color-gold);
     box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
     outline: none;
 }
 
 .filter-select {
-    border: 1px solid var(--palette-border);
+    border: 1px solid var(--color-border);
     border-radius: 10px;
     padding: 10px 14px;
     font-size: 14px;
@@ -391,10 +390,10 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    background: linear-gradient(135deg, var(--palette-cream) 0%, #FAF8F5 100%);
+    background: linear-gradient(135deg, var(--color-cream) 0%, #FAF8F5 100%);
     border: none;
     padding: 12px 8px;
-    color: var(--palette-deep-purple);
+    color: var(--color-deep-purple);
     text-align: center;
 }
 
@@ -402,7 +401,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
     padding: 10px 8px;
     border-color: rgba(77, 64, 82, 0.05);
     font-size: 13px;
-    color: var(--palette-dark-purple);
+    color: var(--color-dark-purple);
     vertical-align: middle;
     text-align: center;
 }
@@ -442,19 +441,19 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .badge.status-paid {
-    background: linear-gradient(135deg, var(--palette-success) 0%, #0F766E 100%);
+    background: linear-gradient(135deg, var(--color-accent) 0%, #0F766E 100%);
     color: white;
     box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
 }
 
 .badge.status-pending {
-    background: linear-gradient(135deg, var(--palette-warning) 0%, var(--palette-gold) 100%);
-    color: var(--palette-deep-purple);
-    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
+    color: var(--color-deep-purple);
+    box-shadow: 0 2px 8px rgba(218, 165, 32, 0.3);
 }
 
 .badge.status-late {
-    background: linear-gradient(135deg, var(--palette-danger) 0%, #B91C1C 100%);
+    background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
     color: white;
     box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
 }
@@ -476,26 +475,26 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--palette-success) 0%, #0F766E 100%);
+    background: linear-gradient(135deg, var(--color-accent) 0%, #0F766E 100%);
     border: none;
     color: white;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #0F766E 0%, var(--palette-success) 100%);
+    background: linear-gradient(135deg, #0F766E 0%, var(--color-accent) 100%);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(42, 157, 143, 0.4);
 }
 
 .btn-warning {
-    background: linear-gradient(135deg, var(--palette-gold) 0%, var(--palette-light-gold) 100%);
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
     border: none;
-    color: var(--palette-deep-purple);
+    color: var(--color-deep-purple);
 }
 
 .btn-warning:hover {
-    background: linear-gradient(135deg, var(--palette-light-gold) 0%, var(--palette-gold) 100%);
-    color: var(--palette-deep-purple);
+    background: linear-gradient(135deg, var(--color-light-gold) 0%, var(--color-gold) 100%);
+    color: var(--color-deep-purple);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(218, 165, 32, 0.4);
 }
@@ -529,19 +528,19 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .payment-modal .modal-header {
-    background: linear-gradient(135deg, var(--palette-cream) 0%, #FAF8F5 100%);
-    border-bottom: 1px solid var(--palette-border);
+    background: linear-gradient(135deg, var(--color-cream) 0%, #FAF8F5 100%);
+    border-bottom: 1px solid var(--color-border);
     border-radius: 16px 16px 0 0;
 }
 
 .payment-modal .modal-content {
     border-radius: 16px;
-    border: 1px solid var(--palette-border);
+    border: 1px solid var(--color-border);
     box-shadow: 0 8px 32px rgba(48, 25, 52, 0.15);
 }
 
 .payment-modal .modal-title {
-    color: var(--palette-deep-purple);
+    color: var(--color-deep-purple);
     font-weight: 700;
     font-size: 20px;
 }
@@ -560,12 +559,12 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 
 .payment-detail-label {
     font-weight: 600;
-    color: var(--palette-dark-purple);
+    color: var(--color-dark-purple);
     font-size: 14px;
 }
 
 .payment-detail-value {
-    color: var(--palette-deep-purple);
+    color: var(--color-deep-purple);
     font-weight: 500;
     font-size: 14px;
 }
@@ -577,11 +576,11 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .verification-status.verified {
-    color: var(--palette-success);
+    color: var(--color-accent);
 }
 
 .verification-status.pending {
-    color: var(--palette-warning);
+    color: var(--color-gold);
 }
 
 .verification-status.not-verified {
@@ -672,20 +671,21 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .empty-state {
     text-align: center;
     padding: 40px 20px;
-    color: var(--palette-dark-purple);
+    color: var(--color-dark-purple);
 }
 
 .empty-state i {
     font-size: 64px;
-    color: var(--palette-border);
+    color: var(--color-dark-purple);
     margin-bottom: 20px;
+    opacity: 0.3;
 }
 
 .empty-state h4 {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 12px;
-    color: var(--palette-deep-purple);
+    color: var(--color-deep-purple);
 }
 
 .empty-state p {
@@ -860,7 +860,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .financial-title h3,
 .financial-value,
 .table th {
-    color: var(--palette-deep-purple) !important;
+    color: var(--color-deep-purple) !important;
 }
 
 .page-header p,
@@ -868,7 +868,7 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 .financial-title .description,
 .financial-detail,
 .table td {
-    color: var(--palette-dark-purple) !important;
+    color: var(--color-dark-purple) !important;
 }
 </style>
 
