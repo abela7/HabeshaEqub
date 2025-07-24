@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2025 at 04:44 AM
+-- Generation Time: Jul 25, 2025 at 12:09 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,8 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `username`, `email`, `phone`, `password`, `is_active`, `created_at`, `updated_at`) VALUES
-(3, 'Abeldemssie', NULL, NULL, '$2y$12$t42lLluGvefREVG44PN20.Ar4fdU8aEzadsvzV7BYn/gVM3zzArjW', 1, '2025-07-22 08:19:10', '2025-07-22 08:19:24');
+(3, 'Abeldemssie', NULL, NULL, '$2y$12$t42lLluGvefREVG44PN20.Ar4fdU8aEzadsvzV7BYn/gVM3zzArjW', 1, '2025-07-22 08:19:10', '2025-07-22 08:19:24'),
+(4, 'abela', NULL, NULL, '$2y$12$KJjtNQ0EBbCS8x7sp77eJuzgBjDzTseNZoD6Mk5XGSgM39hfHODFy', 1, '2025-07-24 21:19:50', '2025-07-24 21:20:14');
 
 -- --------------------------------------------------------
 
@@ -326,7 +327,7 @@ ALTER TABLE `payouts`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `equb_rules`
@@ -356,7 +357,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `payouts`
 --
 ALTER TABLE `payouts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
