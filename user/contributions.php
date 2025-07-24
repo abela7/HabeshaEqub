@@ -439,9 +439,9 @@ $cache_buster = time() . '_' . rand(1000, 9999);
 }
 
 .badge.status-paid {
-    background: linear-gradient(135deg, var(--color-deep-purple) 0%, var(--color-dark-purple) 100%);
-    color: white;
-    box-shadow: 0 2px 8px rgba(48, 25, 52, 0.3);
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-light-gold) 100%);
+    color: var(--color-deep-purple);
+    box-shadow: 0 2px 8px rgba(218, 165, 32, 0.3);
 }
 
 .badge.status-pending {
@@ -1175,10 +1175,10 @@ $cache_buster = time() . '_' . rand(1000, 9999);
                         <i class="fas fa-times me-2"></i>
                         <?php echo t('common.cancel'); ?>
                     </button>
-                                         <button type="button" class="btn btn-primary" id="printReceiptBtn">
-                         <i class="fas fa-print me-2"></i>
-                         Print Receipt
-                     </button>
+                                                             <button type="button" class="btn btn-warning" id="printReceiptBtn" style="background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-light-gold) 100%); border: 2px solid var(--color-light-gold); color: var(--color-deep-purple);">
+                        <i class="fas fa-print me-2"></i>
+                        Print Receipt
+                    </button>
                 </div>
             </div>
         </div>
