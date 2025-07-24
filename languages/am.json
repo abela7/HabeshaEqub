@@ -613,7 +613,7 @@
     "payment_due": "ክፍያ ይገባል",
     "payment_complete": "ክፍያ ተጠናቅቋል",
     "days_overdue": "ቀናት ዘግይቷል",
-    "due_in_days": "በ %d ቀናት ውስጥ ይገባል",
+    "due_in_days": "ከ %d ቀናት በኋላ መክፈል አለብዎት",
     "due_today": "ዛሬ ይገባል",
     "months_paid": "የተከፈሉ ወሮች",
     "total_months": "ጠቅላላ ወሮች",
