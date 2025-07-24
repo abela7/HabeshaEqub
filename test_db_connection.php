@@ -7,7 +7,7 @@
 // Database Configuration
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'habeshjv_habeshaequb');
-define('DB_USER', 'abel');
+define('DB_USER', 'habeshjv_abel');
 define('DB_PASS', '2121@Habesha');
 
 echo "<h2>Database Connection Test</h2>";
